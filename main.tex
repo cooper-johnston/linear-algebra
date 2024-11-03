@@ -1,0 +1,27 @@
+\documentclass[a4paper, 10pt]{ooga-booga}
+
+\usepackage[textsize=footnotesize]{todonotes}
+\input{math}
+\usepackage{newpx}
+
+\newcommand{\sectionnumberless}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+
+\setcounter{chapter}{-1} % starts chapter count at 0
+
+\title{Linear Algebra}
+\author{Cooper Johnston}
+\date{November 2024}
+% \titlepagenotes{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\include{chapters/0_sets_and_proofs}
+
+\end{document}

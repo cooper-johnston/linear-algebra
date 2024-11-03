@@ -1,0 +1,37 @@
+\usepackage{amsmath, amssymb, amsthm}
+
+% Definitions -----------------------------------------------------------------
+
+\usepackage{soul}
+\newcommand{\defnem}[1]{\hl{#1}}
+
+% Theorems --------------------------------------------------------------------
+
+\theoremstyle{definition}
+
+\newtheorem{exer}{Exercise}[chapter]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exmp}[defn]{Example}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{lem}[defn]{Lemma}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{claim}[defn]{Claim}
+
+% Proofs ----------------------------------------------------------------------
+
+\renewcommand{\qedsymbol}{$ \blacksquare $}
+
+\newenvironment{sltn}{%
+    \begin{proof}[Solution]
+    \renewcommand{\qedsymbol}{$ \square $}%
+}{\end{proof}}
+
+% Operators -------------------------------------------------------------------
+
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Char}{char}
