@@ -2,10 +2,60 @@
 
 \section{Sets}
 
-We will begin by exploring the concept of a set through what is sometimes called intuitive or naive set theory. A more rigorous approach, axiomatic set theory, is outside the scope of this course. For the purposes of this course, our intuitive treatment of sets will suffice.
+We will begin by exploring the concept of a set through what is sometimes called intuitive or naive set theory. This intuitive treatment of sets will suffice for the purposes of this course. A more rigorous approach, axiomatic set theory, is outside the scope of this course.
 
 \begin{defn}
-A \defnem{set} is a well-defined collection of objects.
+A \defnem{set} is a well-defined collection of objects. By \textquote{well-defined} we mean that for any set $ S $, any object is either definitely in $ S $ or definitely not in $ S $.
+
+An object that is in a set is called an \defnem{element} of that set. We write $ x\in S $ to denote that $ x $ is an element of the set $ S $.
+
+The set that does not contain any elements is called the \defnem{empty set}, denoted $ \varnothing $.
+
+The number of elements in a set is called the \defnem{cardinality} of that set. We write $ \lvert S\rvert $ to denote the cardinality of the set $ S $.
+\end{defn}
+
+One way to describe a set is by listing its elements. For example, we can define $ A $ to be the set containing the numbers 3, 6, 9, and 12, denoted by
+\begin{equation*}
+    A=\{3,6,9,12\}.
+\end{equation*}
+Another way is to give a defining property of its elements. For example, $ A $ is the set of the first four positive multiples of three, or more mathematically, $ A $ is the set of all elements $ 3n $ such that $ n=1,2,3,4 $, denoted by
+\begin{equation*}
+    A=\{3n\mid n=1,2,3,4\}.
+\end{equation*}
+The latter notation is often called set-builder notation.
+
+\begin{defn}
+Let $ A $ and $ B $ be two sets. $ B $ is called a \defnem{subset} of $ A $, denoted $ B\subseteq A $, if every element in $ B $ is also an element in $ A $, i.e. for every $ b\in B $, we have $ b\in A $.
+
+$ B $ is called a \defnem{proper subset} of $ A $, denoted $ B\subset A $, if $ B\subseteq A $ and $ B\neq A $.
+\end{defn}
+
+\begin{defn}
+Let $ A_1,A_2,\ldots,A_n $ be non-empty sets. The set
+\begin{equation*}
+    A_1\times A_2\times \cdots\times A_n=\{(a_1,a_2,\ldots,a_n)\mid a_1\in A_1,a_2\in A_2,\ldots,a_n\in A_n\}
+\end{equation*}
+is called the \defnem{Cartesian product} of $ A_1,A_2,\ldots,A_n $.
+\end{defn}
+
+The Cartesian product of a set with itself can be denoted by
+\begin{equation*}
+    \underbrace{A\times A\times\cdots\times A}_{n\text{ times}}=A^n.
+\end{equation*}
+For example, $ \mathbb{R}\times\mathbb{R}=\mathbb{R}^2 $, the set of ordered pairs of real numbers.
+
+\section{Mappings}
+
+\begin{defn}
+Let $ A $ and $ B $ be two non-empty sets, and let $ \mathcal{R}\subseteq A\times B $. Then, $ \mathcal{R} $ is called a \defnem{relation} between $ A $ and $ B $. For an ordered pair $ (a,b)\in\mathcal{R} $, we say that $ \mathcal{R} $ relates $ a $ to $ b $.
+\end{defn}
+
+\begin{defn}
+Let $ A $ and $ B $ be two non-empty sets. A relation $ f $ between $ A $ and $ B $ is called a \defnem{mapping} or a \defnem{function} if for every $ a\in A $, there exists exactly one $ b\in B $ such that $ f $ relates $ a $ to $ b $. The set $ A $ is called the \defnem{domain} of $ f $, and $ B $ is called the \defnem{codomain} of $ f $.
+
+We write $ f:A\to B $ to denote that $ f $ is a mapping with domain $ A $ and codomain $ B $; that is, $ f $ is a mapping from $ A $ to $ B $.
+
+We write $ f(a)=b $ or $ a\mapsto b $ to denote that $ f $ relates $ a $ to $ b $; that is, $ f $ maps $ a $ to $ b $.
 \end{defn}
 
 \section{Propositional logic}
