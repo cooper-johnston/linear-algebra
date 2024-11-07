@@ -3,7 +3,7 @@
 \section{Vector spaces}
 
 \begin{defn}
-Let $ F $ be a set and let $ + $ and $ \cdot $ be two operations defined for elements of $ F $. $ F $, together with the operations $ + $ and $ \cdot $, is called a \defnem{field} if all of the following axioms are satisfied:
+Let $ F $ be a set and let $ + $ and $ \cdot $ be two binary operations on $ F $. $ F $, together with the operations $ + $ and $ \cdot $, is called a \defnem{field} if all of the following axioms are satisfied:
 \begin{enumerate}
     \item $ + $ and $ \cdot $ are associative, i.e. for all $ a,b,c\in F $, we have
     \begin{equation*}
@@ -42,6 +42,8 @@ Let $ F $ be a set and let $ + $ and $ \cdot $ be two operations defined for ele
 \end{enumerate}
 \end{defn}
 
+Let us examine some examples of what is and isn't a field.
+
 \begin{exmp}
 Show that the set of real numbers $ \mathbb{R} $, together with standard addition and multiplication, is a field.
 \end{exmp}
@@ -73,7 +75,7 @@ The multiplicative identity is the number 1. Consider the number $ 2\in\mathbb{Z
 \end{sltn}
 
 \begin{defn}
-Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ \oplus:V\times V\to V $ be two binary operations. $ V $, together with these operations, is called a \defnem{vector space} over $ F $ if all of the following axioms are satisfied:
+Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ \oplus:V\times V\to V $ be two binary operations\footnote{Here, $ \odot $ is a binary operation under a more generalized definition than Definition \ref{defn:binop}, since $ F $ and $ V $ are different sets.}. $ V $, together with these operations, is called a \defnem{vector space} over $ F $ if all of the following axioms are satisfied:
 \begin{enumerate}
     \item $ \oplus $ is associative, i.e. for all $ \vect{u},\vect{v},\vect{w}\in V $, we have
     \begin{equation*}
@@ -90,7 +92,7 @@ Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ 
         \vect{v}\oplus\vect{0}=\vect{v}.
     \end{equation*}
 
-    \item For every $ \vect{v}\in V $, there exists an element $ -\vect{v}\in V $, called the \defnem{additive inverse} of $ \vect{v} $, such that
+    \item For every $ \vect{v}\in V $, there exists an element $ -\vect{v}\in V $, called the additive inverse of $ \vect{v} $, such that
     \begin{equation*}
         \vect{v}\oplus(-\vect{v})=\vect{0}.
     \end{equation*}
@@ -118,4 +120,6 @@ Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ 
 \end{enumerate}
 
 The elements of $ F $ are called \defnem{scalars} and the elements of $ V $ are called \defnem{vectors}. The operation $ \odot $ is called \defnem{scalar multiplication} and the operation $ \oplus $ is called \defnem{vector addition}.
+
+Note that the zero vector is the same as the additive identity under vector addition.
 \end{defn}
