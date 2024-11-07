@@ -92,7 +92,7 @@ Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ 
         \vect{v}\oplus\vect{0}=\vect{v}.
     \end{equation*}
 
-    \item For every $ \vect{v}\in V $, there exists an element $ -\vect{v}\in V $, called the additive inverse of $ \vect{v} $, such that
+    \item For every $ \vect{v}\in V $, there exists an element $ -\vect{v}\in V $\!, called the additive inverse of $ \vect{v} $, such that
     \begin{equation*}
         \vect{v}\oplus(-\vect{v})=\vect{0}.
     \end{equation*}
@@ -123,3 +123,68 @@ The elements of $ F $ are called \defnem{scalars} and the elements of $ V $ are 
 
 Note that the zero vector is the same as the additive identity under vector addition.
 \end{defn}
+
+Let us now examine some examples of what is and isn't a vector space.
+
+\begin{exmp}
+Show that $ \mathbb{R}^2 $, together with
+\begin{itemize}
+    \item vector addition $ \oplus $ defined such that for all $ (x_1,y_1),(x_2,y_2)\in\mathbb{R}^2 $, we have $ (x_1,y_1)\oplus(x_2,y_2)=(x_1+x_2,y_1+y_2) $; and
+    \item scalar multiplication $ \odot $ defined such that for all $ c\in\mathbb{R} $ and $ (x,y)\in\mathbb{R}^2 $, we have $ c\odot(x,y)=(cx,cy) $,
+\end{itemize} is a vector space over $ \mathbb{R} $.
+\end{exmp}
+\begin{sltn}
+Let $ (x,y),(x_1,y_1),(x_2,y_2),(x_3,y_3)\in\mathbb{R}^2 $ and let $ a,b\in\mathbb{R} $. We will prove this result by examining each of the axioms one-by-one:
+\begin{enumerate}
+    \item We have
+    \begin{align*}
+        ((x_1,y_1)\oplus(x_2,y_2))\oplus(x_3,y_3) &= (x_1+x_2,y_1+y_2)\oplus(x_3,y_3) \\
+        &= (x_1+x_2+x_3,y_1+y_2+y_3) \\
+        &= (x_1,y_1)\oplus(x_2+x_3,y_2+y_3) \\
+        &= (x_1,y_1)\oplus((x_2,y_2)\oplus(x_3,y_3)),
+    \end{align*}
+    so $ \oplus $ is associative.
+
+    \item We have
+    \begin{equation*}
+        (x_1,y_1)\oplus(x_2,y_2)=(x_1+x_2,y_1+y_2)=(x_2+x_1,y_2+y_1)=(x_2,y_2)\oplus(x_1,y_1),
+    \end{equation*}
+    so $ \oplus $ is commutative.
+
+    \item Let $ \vect{0}=(0,0) $. Then,
+    \begin{equation*}
+        (x,y)\oplus\vect{0}=(x,y)\oplus(0,0)=(x+0,y+0)=(x,y),
+    \end{equation*}
+    so $ \vect{0} $ is the zero vector.
+
+    \item Let $ -(x,y)=(-x,-y) $. Then,
+    \begin{equation*}
+        (x,y)\oplus(-(x,y))=(x,y)\oplus(-x,-y)=(x-x,y-y)=(0,0)=\vect{0},
+    \end{equation*}
+    so $ -(x,y) $ is the additive inverse of $ (x,y) $.
+
+    \item We have
+    \begin{equation*}
+        a\odot(b\odot(x,y))=a\odot(bx,by)=(abx,aby)=(ab)\odot(x,y).
+    \end{equation*}
+
+    \item Recall that the number 1 is the multiplicative identity of $ \mathbb{R} $. We have
+    \begin{equation*}
+        1\odot(x,y)=(1x,1y)=(x,y).
+    \end{equation*}
+
+    \item We have
+    \begin{align*}
+        a\odot((x_1,y_1)\oplus(x_2,y_2)) &= a\odot(x_1+x_2,y_1+y_2)=(a(x_1+x_2),a(y_1+y_2)) \\
+        &= (ax_1+ax_2,ay_1+ay_2)=(ax_1,ay_1)\oplus(ax_2,ay_2) \\
+        &= (a\odot(x_1,y_1))\oplus(a\odot(x_2,y_2)).
+    \end{align*}
+
+    \item We have
+    \begin{align*}
+        (a+b)\odot(x,y) &= ((a+b)x,(a+b)y)=(ax+bx,ay+by) \\
+        &= (ax,ay)\oplus(bx,by)=(a\odot(x,y))\oplus(b\odot(x,y)).
+    \end{align*}
+\end{enumerate}
+Hence, $ \mathbb{R}^2 $ with these operations is a vector space over $ \mathbb{R} $.
+\end{sltn}
