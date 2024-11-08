@@ -1,4 +1,4 @@
-\chapter{Vectors}
+\chapter{Vectors}\label{chap:vectors}
 
 \section{Vector spaces}
 
@@ -195,3 +195,18 @@ Hence, $ \mathbb{R}^2 $ with these operations is a vector space over $ \mathbb{R
 \end{sltn}
 
 In these examples and in the definition, we used the symbols $ \odot $ and $ \oplus $ for scalar multiplication and vector addition, respectively, in order to help distinguish these operations from addition and multiplication on the field. From now on, we will use additive notation $ \vect{u}\oplus\vect{v}=\vect{u}+\vect{v} $ for vector addition and multiplicative notation $ c\odot\vect{v}=c\vect{v} $ for scalar multiplication, but it is still important to remember the distinction between these operations with vectors and the analogous operations on the field.
+
+\sectionnumberless{Exercises}
+
+\begin{exer}\label{exer:cfield}
+Consider the set of complex numbers $ \mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\} $ where $ i $ is the imaginary number, defined such that $ i^2=-1 $. We naturally have the operations $ + $ and $ \cdot $ defined such that for all $ (a+bi),(c+di)\in\mathbb{C} $, we have
+\begin{equation*}
+    (a+bi)+(c+di)=a+c+bi+di=(a+c)+(b+d)i
+\end{equation*}
+and
+\begin{align*}
+    (a+bi)\cdot(c+di) &= ac+a(di)+(bi)c+(bi)(di)=ac+adi+bci+bdi^2 \\
+    &= ac+adi+bci-bd=(ac-bd)+(ad+bc)i.
+\end{align*}
+Show that $ \mathbb{C} $ with these operations is a field.
+\end{exer}

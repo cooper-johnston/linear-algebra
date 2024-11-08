@@ -22,8 +22,8 @@
 
 \renewcommand{\qedsymbol}{$ \blacksquare $}
 
-\newenvironment{sltn}{%
-    \begin{proof}[Solution]
+\newenvironment{sltn}[1][\unskip]{%
+    \begin{proof}[Solution #1]
     \renewcommand{\qedsymbol}{$ \square $}%
 }{\end{proof}}
 
