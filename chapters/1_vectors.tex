@@ -40,6 +40,8 @@ Let $ F $ be a set and let $ + $ and $ \cdot $ be two binary operations on $ F $
         a\cdot(b+c)=(a\cdot b)+(a\cdot c).
     \end{equation*}
 \end{enumerate}
+
+The operation $ + $ is called \defnem{addition}, and the operation $ \cdot $ is called \defnem{multiplication}. For multiplication, we will often use the notation $ a\cdot b=ab $.
 \end{defn}
 
 Let us examine some examples of what is and isn't a field.
@@ -74,8 +76,10 @@ Show that the set of integers $ \mathbb{Z} $, together with standard addition an
 The multiplicative identity is the number 1. Consider the number $ 2\in\mathbb{Z} $. There does not exist a number $ n\in\mathbb{Z} $ such that $ 2n=1 $; that is, 2 does not have a multiplicative inverse in $ \mathbb{Z} $. Hence, $ \mathbb{Z} $ is not a field.
 \end{sltn}
 
+For simplicity, when working with fields of numbers, we will from now on assume standard addition and multiplication unless otherwise specified, and we will denote the field simply by its set. For example, the field $ \mathbb{R} $ is assumed to mean $ \mathbb{R} $ together with standard addition and multiplication.
+
 \begin{defn}
-Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ \oplus:V\times V\to V $ be two binary operations\footnote{Here, $ \odot $ is a binary operation under a more generalized definition than Definition \ref{defn:binop}, since $ F $ and $ V $ are different sets.}. $ V $, together with these operations, is called a \defnem{vector space} over $ F $ if all of the following axioms are satisfied:
+Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ \oplus:V\times V\to V $ be two binary operations. $ V $, together with these operations, is called a \defnem{vector space} over $ F $ if all of the following axioms are satisfied:
 \begin{enumerate}
     \item $ \oplus $ is associative, i.e. for all $ \vect{u},\vect{v},\vect{w}\in V $, we have
     \begin{equation*}
@@ -155,13 +159,13 @@ Let $ (x,y),(x_1,y_1),(x_2,y_2),(x_3,y_3)\in\mathbb{R}^2 $ and let $ a,b\in\math
     \begin{equation*}
         (x,y)\oplus\vect{0}=(x,y)\oplus(0,0)=(x+0,y+0)=(x,y),
     \end{equation*}
-    so $ \vect{0} $ is the zero vector.
+    so $ \vect{0} $, as we have defined it, is the zero vector (the zero vector exists).
 
     \item Let $ -(x,y)=(-x,-y) $. Then,
     \begin{equation*}
         (x,y)\oplus(-(x,y))=(x,y)\oplus(-x,-y)=(x-x,y-y)=(0,0)=\vect{0},
     \end{equation*}
-    so $ -(x,y) $ is the additive inverse of $ (x,y) $.
+    so $ -(x,y) $, as we have defined it, is the additive inverse of $ (x,y) $ (the additive inverse exists).
 
     \item We have
     \begin{equation*}
@@ -177,8 +181,9 @@ Let $ (x,y),(x_1,y_1),(x_2,y_2),(x_3,y_3)\in\mathbb{R}^2 $ and let $ a,b\in\math
     \begin{align*}
         a\odot((x_1,y_1)\oplus(x_2,y_2)) &= a\odot(x_1+x_2,y_1+y_2)=(a(x_1+x_2),a(y_1+y_2)) \\
         &= (ax_1+ax_2,ay_1+ay_2)=(ax_1,ay_1)\oplus(ax_2,ay_2) \\
-        &= (a\odot(x_1,y_1))\oplus(a\odot(x_2,y_2)).
+        &= (a\odot(x_1,y_1))\oplus(a\odot(x_2,y_2)),
     \end{align*}
+    so $ \odot $ is distributive over $ \oplus $.
 
     \item We have
     \begin{align*}
@@ -188,3 +193,5 @@ Let $ (x,y),(x_1,y_1),(x_2,y_2),(x_3,y_3)\in\mathbb{R}^2 $ and let $ a,b\in\math
 \end{enumerate}
 Hence, $ \mathbb{R}^2 $ with these operations is a vector space over $ \mathbb{R} $.
 \end{sltn}
+
+In these examples and in the definition, we used the symbols $ \odot $ and $ \oplus $ for scalar multiplication and vector addition, respectively, in order to help distinguish these operations from addition and multiplication on the field. From now on, we will use additive notation $ \vect{u}\oplus\vect{v}=\vect{u}+\vect{v} $ for vector addition and multiplicative notation $ c\odot\vect{v}=c\vect{v} $ for scalar multiplication, but it is still important to remember the distinction between these operations with vectors and the analogous operations on the field.
