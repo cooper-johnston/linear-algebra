@@ -52,17 +52,21 @@ Thus, $ \mathbb{C} $ is closed under $ + $ and $ \cdot $. Now we can check the f
         (a+bi)\cdot(1+0i)=(1a-0b)+(0a+1b)i=a+bi.
     \end{equation*}
 
-    \item Existence of additive inverse: For $ a+bi\in\mathbb{C} $, consider $ -a-bi\in\mathbb{C} $. We see
+    \item Existence of additive inverse: For $ a+bi $, consider $ -a-bi\in\mathbb{C} $. We see
     \begin{equation*}
         (a+bi)+(-a-bi)=(a-a)+(b-b)i=0+0i=0.
     \end{equation*}
 
-    \item Existence of multiplicative inverse: Suppose $ a+bi\neq 0 $. Then, we have three possible cases:
-    \begin{enumerate}
-        \item $ a,b\neq 0 $.
-        \item $ a=0 $, $ b\neq 0 $.
-        \item $ a\neq 0 $, $ b=0 $.
-    \end{enumerate}
+    \item Existence of multiplicative inverse: Suppose $ a+bi\neq 0 $. Consider\footnote{This can be found by setting $ (a+bi)\cdot(\alpha+\beta i)=1 $ and solving for $ \alpha $ and $ \beta $.}
+    \begin{equation*}
+        \frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i\in\mathbb{C}.
+    \end{equation*}
+    We see
+    \begin{align*}
+        (a+bi)\cdot\left(\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i\right) &= \frac{a^2}{a^2+b^2}+\frac{b^2}{a^2+b^2} \\
+        &\phantom{=}\quad +\left(\frac{ab}{a^2+b^2}-\frac{ba}{a^2+b^2}\right)i \\
+        &= \frac{a^2+b^2}{a^2+b^2}+0i=1.
+    \end{align*}
 
     \item Distributivity:
     \begin{align*}
