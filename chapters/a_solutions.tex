@@ -3,5 +3,77 @@
 \section*{Chapter \ref{chap:vectors}}
 
 \begin{sltn}[\ref{exer:cfield}]
-Test
+Let $ a,b,c,d,e,f\in\mathbb{R} $. First we must verify that $ \mathbb{C} $ is indeed closed under the given operations. Since $ (a+c),(b+d)\in\mathbb{R} $, we see that
+\begin{equation*}
+    (a+bi)+(c+di)=(a+c)+(b+d)i\in\mathbb{C},
+\end{equation*}
+and similarly, since $ (ac-bd),(ad+bc)\in\mathbb{R} $, we also see that
+\begin{equation*}
+    (a+bi)\cdot(c+di)=(ac-bd)+(ad+bc)i\in\mathbb{C}.
+\end{equation*}
+Thus, $ \mathbb{C} $ is closed under $ + $ and $ \cdot $. Now we can check the field axioms:
+\begin{enumerate}
+    \item Associativity:
+    \begin{align*}
+        ((a+bi)+(c+di))+(e+fi) &= (a+c+(b+d)i)+(e+fi) \\
+        &= a+c+e+(b+d+f)i \\
+        &= a+bi+(c+e)+(d+f)i \\
+        &= (a+bi)+((c+di)+(e+fi)).
+    \end{align*}
+    \begin{align*}
+        ((a+bi)\cdot(c+di))\cdot(e+fi) &= (ac-bd+(ad+bc)i)\cdot(e+fi) \\
+        &= (ac-bd)e-(ad+bc)f \\
+        &\phantom{=}\quad +((ac-bd)f+(ad+bc)e)i \\
+        &= ace-bde-adf-bcf \\
+        &\phantom{=}\quad +(acf-bdf+ade+bce)i \\
+        &= a(ce-df)-b(cf+de) \\
+        &\phantom{=}\quad +(a(cf+de)+b(ce-df))i \\
+        &= (a+bi)\cdot(ce-df+(cf+de)i) \\
+        &= (a+bi)\cdot((c+di)\cdot(e+fi)).
+    \end{align*}
+
+    \item Commutativity:
+    \begin{align*}
+        (a+bi)+(c+di) &= (a+b)+(c+d)i=(b+a)+(d+c)i \\
+        &= (c+di)+(a+bi).
+    \end{align*}
+    \begin{align*}
+        (a+bi)\cdot(c+di) &= (ac-bd)+(ad+bc)i=(ca-db)+(da+cb)i \\
+        &= (c+di)\cdot(a+bi).
+    \end{align*}
+
+    \item Existence of additive identity: Consider $ 0=0+0i\in\mathbb{C} $. We see
+    \begin{equation*}
+        (a+bi)+(0+0i)=(a+0)+(b+0)i=a+bi.
+    \end{equation*}
+
+    \item Existence of multiplicative identity: Consider $ 1=1+0i\in\mathbb{C} $. We see
+    \begin{equation*}
+        (a+bi)\cdot(1+0i)=(1a-0b)+(0a+1b)i=a+bi.
+    \end{equation*}
+
+    \item Existence of additive inverse: For $ a+bi\in\mathbb{C} $, consider $ -a-bi\in\mathbb{C} $. We see
+    \begin{equation*}
+        (a+bi)+(-a-bi)=(a-a)+(b-b)i=0+0i=0.
+    \end{equation*}
+
+    \item Existence of multiplicative inverse: Suppose $ a+bi\neq 0 $. Then, we have three possible cases:
+    \begin{enumerate}
+        \item $ a,b\neq 0 $.
+        \item $ a=0 $, $ b\neq 0 $.
+        \item $ a\neq 0 $, $ b=0 $.
+    \end{enumerate}
+
+    \item Distributivity:
+    \begin{align*}
+        (a+bi)\cdot((c+di)+(e+fi)) &= (a+bi)\cdot(c+e+(d+f)i) \\
+        &= a(c+e)-b(d+f) \\
+        &\phantom{=}\quad +(a(d+f)+b(c+e))i \\
+        &= ac+ae-bd-bf+(ad+af+bc+be)i \\
+        &= ac-bd+(ad+bc)i+ae-bf \\
+        &\phantom{=}\quad +(af+be)i \\
+        &= (a+bi)\cdot(c+di)+(a+bi)\cdot(e+fi).
+    \end{align*}
+\end{enumerate}
+Hence, $ \mathbb{C} $ with these operations is a field.
 \end{sltn}
