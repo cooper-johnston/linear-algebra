@@ -3,7 +3,7 @@
 \section{Vector spaces}
 
 \begin{defn}
-Let $ F $ be a set and let $ + $ and $ \cdot $ be two binary operations on $ F $. $ F $, together with the operations $ + $ and $ \cdot $, is called a \defnem{field} if all of the following axioms are satisfied:
+Let $ F $ be a set and let $ + $ and $ \cdot $ be two binary operations on $ F $. The set $ F $, together with the operations $ + $ and $ \cdot $, is called a \defnem{field} if all of the following axioms are satisfied:
 \begin{enumerate}
     \item $ + $ and $ \cdot $ are associative, i.e. for all $ a,b,c\in F $, we have
     \begin{equation*}
@@ -44,11 +44,11 @@ Let $ F $ be a set and let $ + $ and $ \cdot $ be two binary operations on $ F $
 The operation $ + $ is called \defnem{addition}, and the operation $ \cdot $ is called \defnem{multiplication}. For multiplication, we will often use the notation $ a\cdot b=ab $.
 \end{defn}
 
-Note that by the definition of the operations $ + $ and $ \cdot $, when we add or multiply two elements of a field, the result must also be an element of the field, i.e. for all $ a,b\in F $ where $ F $ is a field, we must have
+Note that since the operations $ + $ and $ \cdot $ are defined as operations on $ F $, when we add or multiply two elements of $ F $, the result must also be an element of $ F $, i.e. for all $ a,b\in F $, we must have
 \begin{equation*}
 a+b\in F \quad\text{and}\quad a\cdot b\in F.
 \end{equation*}
-This is called \defnem{closure}, and we say that a field must be \defnem{closed} under $ + $ and $ \cdot $.
+This is called \defnem{closure}, and we say that a field must be \defnem{closed} under addition and multiplication.
 
 Let us examine some examples of what is and isn't a field.
 
@@ -130,9 +130,9 @@ Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ 
 \end{enumerate}
 
 The elements of $ F $ are called \defnem{scalars} and the elements of $ V $ are called \defnem{vectors}. The operation $ \odot $ is called \defnem{scalar multiplication} and the operation $ \oplus $ is called \defnem{vector addition}.
-
-Note that the zero vector is the same as the additive identity under vector addition.
 \end{defn}
+
+Note that the zero vector is the same as the additive identity under vector addition. Also note that by the way we have defined $ \odot $ and $ \oplus $, a vector space must be closed under scalar multiplication and vector addition, just as a field must be closed under field addition and multiplication.
 
 Let us now examine some examples of what is and isn't a vector space.
 
