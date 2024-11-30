@@ -236,7 +236,7 @@ for vector addition and multiplicative notation
 \begin{equation*}
     c\odot\vect{v}=c\vect{v}
 \end{equation*}
-for scalar multiplication, but it is still important to remember the distinction between these operations with vectors and the analogous operations on the field.
+for scalar multiplication, but it is still important to remember the distinction between these operations with vectors and the analogous operations on the field. We will also write expressions with vectors assuming that scalar multiplication takes precedence over vector addition, akin to the standard order of operations.
 
 \begin{thm}
 Let $ V $ be a vector space over a field $ F $. For all $ \vect{v}\in V $ and $ a\in F $, we have
@@ -324,6 +324,67 @@ Show that $ P_n(F) $, together with addition and scalar multiplication defined s
 is a vector space over $ F $.
 \end{exer}
 
+\section{Subspaces}
+
+\begin{defn}
+Let $ V $ be a vector space over a field $ F $ and let $ W $ be a non-empty subset of $ V $. The set $ W $, together with vector addition and scalar multiplication as defined on $ V $, is called a \defnem{subspace} of $ V $ if $ W $ with these operations is a vector space over $ F $.
+
+The subspaces $ W=\{\vect{0}_V\} $ and $ W=V $ are called the \defnem{trivial subspaces} of $ V $.
+\end{defn}
+
+\begin{thm}
+Let $ V $ be a vector space over a field $ F $ and let $ W $ be a non-empty subset of $ V $. Then, $ W $ is a subspace of $ V $ if and only if for all $ \vect{u},\vect{v}\in W $ and $ a\in F $, we have
+\begin{equation*}
+    \vect{u}+\vect{v}\in W \quad\text{and}\quad a\vect{u}\in W.
+\end{equation*}
+\end{thm}
+
+\begin{thm}
+Let $ U $ be a vector space over a field $ F $ and let $ V $ and $ W $ be subspaces of $ U $. Then, $ V\cap W $ is also a subspace of $ U $.
+\end{thm}
+
+\begin{cor}
+Let $ V $ be a vector space and let $ W_1,W_2,\ldots,W_n $ be subspaces of $ V $. Then, $ \cap_{k=1}^n W_k $ is also a subspace of $ V $.
+\end{cor}
+
 \section{Linear combinations}
+
+\begin{defn}
+Let $ V $ be a vector space over a field $ F $ and let $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in V $ and $ a_1,a_2,\ldots,a_n\in F $. A vector of the form
+\begin{equation*}
+    a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n=\sum_{k=1}^n a_k\vect{v}_k
+\end{equation*}
+is called a \defnem{linear combination} of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $.
+\end{defn}
+
+\begin{defn}
+Let $ V $ be a vector space over a field $ F $ and let $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in V $. The set of all linear combinations of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $, i.e.
+\begin{equation*}
+    \{a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n\mid a_1,a_2,\ldots,a_n\in F\},
+\end{equation*}
+is called the \defnem{span} of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $, denoted $ \Span\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $.
+
+If $ \Span\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\}=V $, we say that the set $ \{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $ spans $ V $.
+\end{defn}
+
+\begin{thm}
+Let $ V $ be a vector space and let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\}\subseteq V $. Then,
+\begin{enumerate}
+    \item $ \Span(S) $ is a subspace of $ V $; and
+    \item If $ W $ is a subspace of $ V $ and $ S\subseteq W $, then $ \Span(S)\subseteq W $. In other words, $ \Span(S) $ is the smallest subspace of $ V $ that contains all the vectors in $ S $.
+\end{enumerate}
+\end{thm}
+
+\begin{defn}
+Let $ V $ be a vector space over a field $ F $ and let $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in V $ and $ a_1,a_2,\ldots,a_n\in F $. The vectors $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $ are called \defnem{linearly independent} if
+\begin{equation*}
+    a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n=\vect{0}
+\end{equation*}
+only if $ a_1=a_2=\cdots=a_n=0_F $. Otherwise, i.e. if there exists such a linear combination where at least one of $ a_1,a_2,\ldots,a_n $ is non-zero, we say the vectors $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $ are \defnem{linearly dependent}.
+\end{defn}
+
+\begin{thm}
+Let $ V $ be a vector space and let $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in V $, $ n\geq 2 $. The vectors $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $ are linearly dependent if and only if at least one of them can be expressed as a linear combination of the others.
+\end{thm}
 
 \section{Basis and dimension}
