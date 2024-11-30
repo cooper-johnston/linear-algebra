@@ -107,7 +107,7 @@ Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ 
         \vect{v}\oplus(-\vect{v})=\vect{0}.
     \end{equation*}
 
-    \item For all $ a,b\in F $ and $ \vect{v}\in V $, we have
+    \item\label{axiom:vect5} For all $ a,b\in F $ and $ \vect{v}\in V $, we have
     \begin{equation*}
         a\odot (b\odot\vect{v})=(ab)\odot\vect{v}.
     \end{equation*}
@@ -193,14 +193,14 @@ Thus, $ \mathbb{R}^2 $ is closed under $ \oplus $ and $ \odot $. Now we can chec
         1\odot(x,y)=(1x,1y)=(x,y).
     \end{equation*}
 
-    \item Distributivity of $ \odot $ over $ \oplus $:
+    \item\label{axiom:vect7} Distributivity of $ \odot $ over $ \oplus $:
     \begin{align*}
         a\odot((x_1,y_1)\oplus(x_2,y_2)) &= a\odot(x_1\!+x_2,y_1+y_2)=(a(x_1\!+x_2),a(y_1+y_2)) \\
         &= (ax_1\!+ax_2,ay_1+ay_2)=(ax_1,ay_1)\oplus(ax_2,ay_2) \\
         &= (a\odot(x_1,y_1))\oplus(a\odot(x_2,y_2)).
     \end{align*}
 
-    \item Distributivity of $ \odot $ over field addition:
+    \item\label{axiom:vect8} Distributivity of $ \odot $ over field addition:
     \begin{align*}
         (a+b)\odot(x,y) &= ((a+b)x,(a+b)y)=(ax+bx,ay+by) \\
         &= (ax,ay)\oplus(bx,by)=(a\odot(x,y))\oplus(b\odot(x,y)).
@@ -237,6 +237,65 @@ for vector addition and multiplicative notation
     c\odot\vect{v}=c\vect{v}
 \end{equation*}
 for scalar multiplication, but it is still important to remember the distinction between these operations with vectors and the analogous operations on the field.
+
+\begin{thm}
+Let $ V $ be a vector space over a field $ F $. For all $ \vect{v}\in V $ and $ a\in F $, we have
+\begin{enumerate}
+    \item\label{thm:vectspace1} $ 0_F\vect{v}=\vect{0} $;
+    \item\label{thm:vectspace2} $ a\vect{0}=\vect{0} $;
+    \item If $ a\vect{v}=\vect{0} $, then $ a=0_F $ or $ \vect{v}=\vect{0} $; and
+    \item\label{thm:vectspace4} $ (-1_F)\vect{v}=-\vect{v} $.
+\end{enumerate}
+\end{thm}
+\begin{proof}~
+\begin{enumerate}
+    \item Since $ 0_F $ is the additive identity on the field, we know $ c+0_F=c $. In particular, $ 0_F+0_F=0_F $. Thus,
+    \begin{align*}
+        0_F\vect{v} &= (0_F+0_F)\vect{v} \\
+        0_F\vect{v} &= 0_F\vect{v}+0_F\vect{v} && \text{distributive property} \\
+        0_F\vect{v}+(-(0_F\vect{v})) &= 0_F\vect{v}+0_F\vect{v}+(-(0_F\vect{v})) \\
+        \vect{0} &= 0_F\vect{v}+0_F\vect{v}+(-(0_F\vect{v})) && \text{vector additive inverse} \\
+        \vect{0} &= 0_F\vect{v}+(0_F\vect{v}+(-(0_F\vect{v}))) && \text{associative property} \\
+        \vect{0} &= 0_F\vect{v}+\vect{0} && \text{vector additive inverse} \\
+        \vect{0} &= 0_F\vect{v}. && \text{vector additive identity}
+    \end{align*}
+
+    \item Since the zero vector $ \vect{0} $ is the additive identity under vector addition, we know $ \vect{v}+\vect{0}=\vect{v} $. In particular, $ \vect{0}+\vect{0}=\vect{0} $. Thus,
+    \begin{align*}
+        a\vect{0} &= a(\vect{0}+\vect{0}) \\
+        a\vect{0} &= a\vect{0}+a\vect{0} && \text{distributive property} \\
+        a\vect{0}+(-(a\vect{0})) &= a\vect{0}+a\vect{0}+(-(a\vect{0})) \\
+        \vect{0} &= a\vect{0}+a\vect{0}+(-(a\vect{0})) && \text{vector additive inverse} \\
+        \vect{0} &= a\vect{0}+(a\vect{0}+(-(a\vect{0}))) && \text{associative property} \\
+        \vect{0} &= a\vect{0}+\vect{0} && \text{vector additive inverse} \\
+        \vect{0} &= a\vect{0}. && \text{vector additive identity}
+    \end{align*}
+
+    \item Suppose $ a\vect{v}=\vect{0} $. We have two possible cases for $ a $. If $ a=0_F $, then we are already finished with the proof. Otherwise, if $ a\neq 0_F $, we can multiply both sides with the multiplicative inverse (on the field) of $ a $:
+    \begin{align*}
+        a\vect{v} &= \vect{0} \\
+        a^{-1}(a\vect{v}) &= a^{-1}\vect{0} \\
+        (a^{-1}a)\vect{v} &= a^{-1}\vect{0} && \text{vector space axiom \ref{axiom:vect5}} \\
+        1_F\vect{v} &= a^{-1}\vect{0} && \text{field multiplicative inverse} \\
+        \vect{v} &= a^{-1}\vect{0} && \text{scalar multiplicative identity} \\
+        \vect{v} &= \vect{0}. && \text{part \ref{thm:vectspace2} of this theorem}
+    \end{align*}
+
+    \item We will start by using the zero vector:
+    \begin{align*}
+        -\vect{v} &= -\vect{v}+\vect{0} \\
+        &= -\vect{v}+0_F\vect{v} && \text{part \ref{thm:vectspace1} of this theorem} \\
+        &= -\vect{v}+(1_F+(-1_F))\vect{v} && \text{field additive inverse} \\
+        &= -\vect{v}+(1_F\vect{v}+(-1_F)\vect{v}) && \text{distributive property} \\
+        &= -\vect{v}+(\vect{v}+(-1_F)\vect{v}) && \text{scalar multiplicative identity} \\
+        &= (-\vect{v}+\vect{v})+(-1_F\vect{v}) && \text{associative property} \\
+        &= \vect{0}+(-1_F)\vect{v} && \text{vector additive inverse} \\
+        &= (-1_F)\vect{v}. && \text{vector additive identity} \qedhere
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+Note that in the above proof, the distributive property used in parts \ref{thm:vectspace1} and \ref{thm:vectspace2} comes from vector space axiom \ref{axiom:vect7}, while the distributive property used in part \ref{thm:vectspace4} comes from axiom \ref{axiom:vect8}.
 
 \sectionnumberless{Exercises}
 
