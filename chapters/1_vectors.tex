@@ -1,6 +1,6 @@
 \chapter{Vectors}\label{chap:vectors}
 
-\section{Vector spaces}
+\section{Fields}
 
 \begin{defn}
 Let $ F $ be a set and let $ + $ and $ \cdot $ be two binary operations on $ F $. The set $ F $, together with the operations $ + $ and $ \cdot $, is called a \defnem{field} if all of the following axioms are satisfied:
@@ -82,27 +82,44 @@ Show that the set of integers $ \mathbb{Z} $, together with standard addition an
 We need only find one axiom that does not hold. The multiplicative identity is the number 1. Consider the number $ 2\in\mathbb{Z} $. There does not exist a number $ n\in\mathbb{Z} $ such that $ 2n=1 $; that is, 2 does not have a multiplicative inverse in $ \mathbb{Z} $. Hence, $ \mathbb{Z} $ is not a field.
 \end{sltn}
 
-For simplicity, when working with fields of numbers, we will from now on assume standard addition and multiplication unless otherwise specified, and we will denote the field simply by its set. For example, the field $ \mathbb{R} $ is assumed to mean $ \mathbb{R} $ together with standard addition and multiplication.
+We will typically denote a field simply by its set, and when working with fields of numbers, we will from now on assume standard addition and multiplication unless otherwise specified. For example, the field \textquote{$ \mathbb{R} $} is assumed to mean $ \mathbb{R} $ together with standard addition and multiplication.
+
+\subsection*{Exercises}
+
+\begin{exer}\label{exer:cfield}
+Consider the set of complex numbers $ \mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\} $ where $ i $ is the imaginary number, defined such that $ i^2=-1 $. We naturally have the operations $ + $ and $ \cdot $ defined such that for all $ (a+bi),(c+di)\in\mathbb{C} $, we have
+\begin{equation*}
+    (a+bi)+(c+di)=a+c+bi+di=(a+c)+(b+d)i
+\end{equation*}
+and
+\begin{align*}
+    (a+bi)\cdot(c+di) &= ac+a(di)+(bi)c+(bi)(di)=ac+adi+bci+bdi^2 \\
+    &= ac+adi+bci-bd=(ac-bd)+(ad+bc)i.
+\end{align*}
+Show that $ \mathbb{C} $ with these operations is a field.
+\end{exer}
+
+\section{Vector spaces}
 
 \begin{defn}
 Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ \oplus:V\times V\to V $ be two binary operations. $ V $, together with these operations, is called a \defnem{vector space} over $ F $ if all of the following axioms are satisfied:
 \begin{enumerate}
-    \item $ \oplus $ is associative, i.e. for all $ \vect{u},\vect{v},\vect{w}\in V $, we have
+    \item\label{axiom:vect1} $ \oplus $ is associative, i.e. for all $ \vect{u},\vect{v},\vect{w}\in V $, we have
     \begin{equation*}
         (\vect{u}\oplus\vect{v})\oplus\vect{w}=\vect{u}\oplus(\vect{v}\oplus\vect{w}).
     \end{equation*}
 
-    \item $ \oplus $ is commutative, i.e. for all $ \vect{u},\vect{v}\in V $, we have
+    \item\label{axiom:vect2} $ \oplus $ is commutative, i.e. for all $ \vect{u},\vect{v}\in V $, we have
     \begin{equation*}
         \vect{u}\oplus\vect{v}=\vect{v}\oplus\vect{u}.
     \end{equation*}
 
-    \item There exists an element $ \vect{0}\in V $, called the \defnem{zero vector}, such that for all $ \vect{v}\in V $, we have
+    \item\label{axiom:vect3} There exists an element $ \vect{0}\in V $, called the \defnem{zero vector}, such that for all $ \vect{v}\in V $, we have
     \begin{equation*}
         \vect{v}\oplus\vect{0}=\vect{v}.
     \end{equation*}
 
-    \item For every $ \vect{v}\in V $, there exists an element $ -\vect{v}\in V $\!, called the additive inverse of $ \vect{v} $, such that
+    \item\label{axiom:vect4} For every $ \vect{v}\in V $, there exists an element $ -\vect{v}\in V $\!, called the additive inverse of $ \vect{v} $, such that
     \begin{equation*}
         \vect{v}\oplus(-\vect{v})=\vect{0}.
     \end{equation*}
@@ -112,18 +129,18 @@ Let $ F $ be a field and $ V $ be a set, and let $ \odot:F\times V\to V $ and $ 
         a\odot (b\odot\vect{v})=(ab)\odot\vect{v}.
     \end{equation*}
 
-    \item For every $ \vect{v}\in V $, we have
+    \item\label{axiom:vect6} For every $ \vect{v}\in V $, we have
     \begin{equation*}
         1_F\odot\vect{v}=\vect{v}
     \end{equation*}
     where $ 1_F $ is the multiplicative identity of $ F $.
 
-    \item $ \odot $ is distributive over $ \oplus $, i.e. for all $ a\in F $ and $ \vect{u},\vect{v}\in V $, we have
+    \item\label{axiom:vect7} $ \odot $ is distributive over $ \oplus $, i.e. for all $ a\in F $ and $ \vect{u},\vect{v}\in V $, we have
     \begin{equation*}
         a\odot(\vect{u}\oplus\vect{v})=(a\odot\vect{u})\oplus(a\odot\vect{v}).
     \end{equation*}
 
-    \item For all $ a,b\in F $ and $ \vect{v}\in V $, we have
+    \item\label{axiom:vect8} For all $ a,b\in F $ and $ \vect{v}\in V $, we have
     \begin{equation*}
         (a+b)\odot\vect{v}=(a\odot\vect{v})\oplus(b\odot\vect{v}).
     \end{equation*}
@@ -137,13 +154,9 @@ Note that the zero vector is the same as the additive identity under vector addi
 Let us now examine some examples of what is and isn't a vector space.
 
 \begin{exmp}
-Show that $ \mathbb{R}^2 $, together with the operations $ \oplus $ and $ \odot $ defined such that for all $ c\in\mathbb{R} $ and $ (x_1,y_1),(x_2,y_2)\in\mathbb{R}^2 $, we have
+Show that $ \mathbb{R}^2 $, together with the operations $ \oplus $ and $ \odot $ defined such that for all $ c\in\mathbb{R} $ and $ (x,y),(x_1,y_1),(x_2,y_2)\in\mathbb{R}^2 $, we have
 \begin{equation*}
-    (x_1,y_1)\oplus(x_2,y_2)=(x_1+x_2,y_1+y_2)
-\end{equation*}
-and
-\begin{equation*}
-    c\odot(x,y)=(cx,cy),
+    (x_1,y_1)\oplus(x_2,y_2)=(x_1+x_2,y_1+y_2) \quad\text{and}\quad c\odot(x,y)=(cx,cy),
 \end{equation*}
 is a vector space over $ \mathbb{R} $.
 \end{exmp}
@@ -193,14 +206,14 @@ Thus, $ \mathbb{R}^2 $ is closed under $ \oplus $ and $ \odot $. Now we can chec
         1\odot(x,y)=(1x,1y)=(x,y).
     \end{equation*}
 
-    \item\label{axiom:vect7} Distributivity of $ \odot $ over $ \oplus $:
+    \item Distributivity of $ \odot $ over $ \oplus $:
     \begin{align*}
         a\odot((x_1,y_1)\oplus(x_2,y_2)) &= a\odot(x_1\!+x_2,y_1+y_2)=(a(x_1\!+x_2),a(y_1+y_2)) \\
         &= (ax_1\!+ax_2,ay_1+ay_2)=(ax_1,ay_1)\oplus(ax_2,ay_2) \\
         &= (a\odot(x_1,y_1))\oplus(a\odot(x_2,y_2)).
     \end{align*}
 
-    \item\label{axiom:vect8} Distributivity of $ \odot $ over field addition:
+    \item Distributivity of $ \odot $ over field addition:
     \begin{align*}
         (a+b)\odot(x,y) &= ((a+b)x,(a+b)y)=(ax+bx,ay+by) \\
         &= (ax,ay)\oplus(bx,by)=(a\odot(x,y))\oplus(b\odot(x,y)).
@@ -225,7 +238,77 @@ and
 is a vector space over $ \mathbb{R} $.
 \end{exmp}
 \begin{sltn}
-Placeholder
+Since the coefficients of $ p(x)\oplus q(x) $ and $ c\odot p(x) $ are in $ \mathbb{R} $, we see that $ p(x)\oplus q(x) $ and $ c\odot p(x) $ are in $ P_2(\mathbb{R}) $. Thus, $ P_2(\mathbb{R}) $ is closed under addition and scalar multiplication. Now we can check the vector space axioms:
+\begin{enumerate}
+    \item Associativity of $ \oplus $: Let $ r(x)=c_0+c_1x+c_2x^2\in P_2(\mathbb{R}) $. Then,
+    \begin{align*}
+        (p(x)\oplus q(x))\oplus r(x) &= ((a_0+b_0)+(a_1+b_1)x+(a_2+b+2)x^2)\oplus r(x) \\
+        &= (a_0+b_0+c_0)+(a_1+b_1+c_1)x+(a_2+b_2+c_2)x^2 \\
+        &= p(x)\oplus((b_0+c_0)+(b_1+c_1)x+(b_2+c_2)x^2) \\
+        &= p(x)\oplus(q(x)\oplus r(x)).
+    \end{align*}
+
+    \item Commutativity of $ \oplus $:
+    \begin{align*}
+        p(x)\oplus q(x) &= (a_0+b_0)+(a_1+b_1)x+(a_2+b_2)x^2 \\
+        &= (b_0+a_0)+(b_1+a_1)x+(b_2+a_2)x^2=q(x)\oplus p(x).
+    \end{align*}
+
+    \item Existence of zero vector: Consider $ o(x)=0+0x+0x^2 $. We see
+    \begin{equation*}
+        p(x)\oplus o(x)=(a_0+0)+(a_1+0)x+(a_2+0)x^2=a_0+a_1x+a_2x^2=p(x),
+    \end{equation*}
+    so $ o(x) $ is the zero vector.
+
+    \item Existence of additive inverse: Consider $ -p(x)=-a_0+(-a_1)x+(-a_2)x^2 $. We see
+    \begin{align*}
+        p(x)\oplus(-p(x)) &= (a_0+(-a_0))+(a_1+(-a_1))x+(a_2+(-a_2))x^2 \\
+        &= 0+0x+0x^2=o(x),
+    \end{align*}
+    so $ -p(x) $, as we have defined it, is the additive inverse of $ p(x) $.
+
+    \item Compatibility of $ \odot $ with field multiplication: Let $ d\in F $. Then,
+    \begin{align*}
+        c\odot(d\odot p(x)) &= c\odot(da_0+da_1x+da_2x^2)=cda_0+cda_1x+cda_2x^2 \\
+        &= (cd)\odot p(x).
+    \end{align*}
+
+    \item Scalar multiplicative identity:
+    \begin{equation*}
+        1\odot p(x)=1a_0+1a_1x+1a_2x^2=a_0+a_1x+a_2x^2=p(x).
+    \end{equation*}
+
+    \item Distributivity of $ \odot $ over $ \oplus $:
+    \begin{align*}
+        c\odot(p(x)\oplus q(x)) &= c\odot((a_0+b_0)+(a_1+b_1)x+(a_2+b_2)x^2) \\
+        &= c(a_0+b_0)+c(a_1+b_1)x+c(a_2+b_2)x^2 \\
+        &= (ca_0+cb_0)+(ca_1+cb_1)x+(ca_2+cb_2)x^2 \\
+        &= (c\odot p(x))\oplus(c\odot q(x)).
+    \end{align*}
+
+    \item Distributivity of $ \odot $ over field addition:
+    \begin{align*}
+        (c+d)\odot p(x) &= (c+d)a_0+(c+d)a_1x+(c+d)a_2x^2 \\
+        &= (ca_0+da_0)+(ca_1+da_1)x+(ca_2+da_2)x^2 \\
+        &= (c\odot p(x))\odot(d\odot p(x)).
+    \end{align*}
+\end{enumerate}
+Hence, $ P_2(\mathbb{R}) $ with these operations is a vector space over $ \mathbb{R} $.
+\end{sltn}
+
+\begin{exmp}
+Show that $ \mathbb{R}^3 $, together with the operations $ \oplus $ and $ \odot $ defined such that for all $ c\in\mathbb{R} $ and $ (x,y,z),(\tilde{x},\tilde{y},\tilde{z})\in\mathbb{R}^3 $, we have
+\begin{equation*}
+    (x,y,z)\oplus(\tilde{x},\tilde{y},\tilde{z})=(x+\tilde{x},y+\tilde{y},0) \quad\text{and}\quad c\odot(x,y,z)=(cx,cy,cz),
+\end{equation*}
+is not a vector space over $ \mathbb{R} $.
+\end{exmp}
+\begin{sltn}
+We need only find one vector space axiom that does not hold. Consider $ (1,1,1)\in\mathbb{R}^3 $. We see
+\begin{equation*}
+    (1,1,1)\oplus(x,y,z)=(x,y,0)\neq (1,1,1)
+\end{equation*}
+for any $ (x,y,z)\in\mathbb{R}^3 $, so there is no additive identity in $ \mathbb{R}^3 $ under $ \oplus $. Hence, $ \mathbb{R}^3 $ with these operations is not a vector space.
 \end{sltn}
 
 In these examples and in the definition, we used the symbols $ \odot $ and $ \oplus $ for scalar multiplication and vector addition, respectively, in order to help distinguish these operations from addition and multiplication on the field. From now on, we will use additive notation
@@ -238,13 +321,13 @@ for vector addition and multiplicative notation
 \end{equation*}
 for scalar multiplication, but it is still important to remember the distinction between these operations with vectors and the analogous operations on the field. We will also write expressions with vectors assuming that scalar multiplication takes precedence over vector addition, akin to the standard order of operations.
 
-\begin{thm}
+\begin{thm}\label{thm:vectprop}
 Let $ V $ be a vector space over a field $ F $. For all $ \vect{v}\in V $ and $ a\in F $, we have
 \begin{enumerate}
-    \item\label{thm:vectspace1} $ 0_F\vect{v}=\vect{0} $;
-    \item\label{thm:vectspace2} $ a\vect{0}=\vect{0} $;
-    \item If $ a\vect{v}=\vect{0} $, then $ a=0_F $ or $ \vect{v}=\vect{0} $; and
-    \item\label{thm:vectspace4} $ (-1_F)\vect{v}=-\vect{v} $.
+    \item\label{thm:vectprop1} $ 0_F\vect{v}=\vect{0} $;
+    \item\label{thm:vectprop2} $ a\vect{0}=\vect{0} $;
+    \item\label{thm:vectprop3} If $ a\vect{v}=\vect{0} $, then $ a=0_F $ or $ \vect{v}=\vect{0} $; and
+    \item\label{thm:vectprop4} $ (-1_F)\vect{v}=-\vect{v} $.
 \end{enumerate}
 \end{thm}
 \begin{proof}~
@@ -278,13 +361,13 @@ Let $ V $ be a vector space over a field $ F $. For all $ \vect{v}\in V $ and $ 
         (a^{-1}a)\vect{v} &= a^{-1}\vect{0} && \text{vector space axiom \ref{axiom:vect5}} \\
         1_F\vect{v} &= a^{-1}\vect{0} && \text{field multiplicative inverse} \\
         \vect{v} &= a^{-1}\vect{0} && \text{scalar multiplicative identity} \\
-        \vect{v} &= \vect{0}. && \text{part \ref{thm:vectspace2} of this theorem}
+        \vect{v} &= \vect{0}. && \text{part \ref{thm:vectprop2} of this theorem}
     \end{align*}
 
     \item We will start by using the zero vector:
     \begin{align*}
         -\vect{v} &= -\vect{v}+\vect{0} \\
-        &= -\vect{v}+0_F\vect{v} && \text{part \ref{thm:vectspace1} of this theorem} \\
+        &= -\vect{v}+0_F\vect{v} && \text{part \ref{thm:vectprop1} of this theorem} \\
         &= -\vect{v}+(1_F+(-1_F))\vect{v} && \text{field additive inverse} \\
         &= -\vect{v}+(1_F\vect{v}+(-1_F)\vect{v}) && \text{distributive property} \\
         &= -\vect{v}+(\vect{v}+(-1_F)\vect{v}) && \text{scalar multiplicative identity} \\
@@ -295,22 +378,9 @@ Let $ V $ be a vector space over a field $ F $. For all $ \vect{v}\in V $ and $ 
 \end{enumerate}
 \end{proof}
 
-Note that in the above proof, the distributive property used in parts \ref{thm:vectspace1} and \ref{thm:vectspace2} comes from vector space axiom \ref{axiom:vect7}, while the distributive property used in part \ref{thm:vectspace4} comes from axiom \ref{axiom:vect8}.
+Note that in the above proof, the distributive property used in parts \ref{thm:vectprop1} and \ref{thm:vectprop2} comes from vector space axiom \ref{axiom:vect7}, while the distributive property used in part \ref{thm:vectprop4} comes from axiom \ref{axiom:vect8}.
 
 \subsection*{Exercises}
-
-\begin{exer}\label{exer:cfield}
-Consider the set of complex numbers $ \mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\} $ where $ i $ is the imaginary number, defined such that $ i^2=-1 $. We naturally have the operations $ + $ and $ \cdot $ defined such that for all $ (a+bi),(c+di)\in\mathbb{C} $, we have
-\begin{equation*}
-    (a+bi)+(c+di)=a+c+bi+di=(a+c)+(b+d)i
-\end{equation*}
-and
-\begin{align*}
-    (a+bi)\cdot(c+di) &= ac+a(di)+(bi)c+(bi)(di)=ac+adi+bci+bdi^2 \\
-    &= ac+adi+bci-bd=(ac-bd)+(ad+bc)i.
-\end{align*}
-Show that $ \mathbb{C} $ with these operations is a field.
-\end{exer}
 
 \begin{exer}\label{exer:pnvs}
 Let $ F $ be a field and let $ P_n(F) $ be the set of all polynomials of degree $ \leq n $ over $ F $, i.e.
@@ -324,6 +394,10 @@ Show that $ P_n(F) $, together with addition and scalar multiplication defined s
 is a vector space over $ F $.
 \end{exer}
 
+\begin{exer}\label{exer:0unique}
+Show that the zero vector of a vector space is unique, i.e. show that if $ \vect{0} $ and $ \tilde{\vect{0}} $ are two zero vectors in the same vector space, then $ \vect{0}=\tilde{\vect{0}} $.
+\end{exer}
+
 \section{Subspaces}
 
 \begin{defn}
@@ -332,20 +406,67 @@ Let $ V $ be a vector space over a field $ F $ and let $ W $ be a non-empty subs
 The subspaces $ W=\{\vect{0}_V\} $ and $ W=V $ are called the \defnem{trivial subspaces} of $ V $.
 \end{defn}
 
-\begin{thm}
-Let $ V $ be a vector space over a field $ F $ and let $ W $ be a non-empty subset of $ V $. Then, $ W $ is a subspace of $ V $ if and only if for all $ \vect{u},\vect{v}\in W $ and $ a\in F $, we have
+\begin{thm}\label{thm:subspacetest}
+Let $ V $ be a vector space over a field $ F $ and let $ W $ be a non-empty subset of $ V $. Then, $ W $ is a subspace of $ V $ if and only if for all $ \vect{u},\vect{v}\in W $ and $ a\in F $, we have the closure conditions
 \begin{equation*}
     \vect{u}+\vect{v}\in W \quad\text{and}\quad a\vect{u}\in W.
 \end{equation*}
 \end{thm}
+\begin{proof}~
+\begin{enumerate}
+    \item[$ \Rightarrow $] Suppose $ W $ is a subspace of $ V $. Then, $ W $ is a vector space, so $ W $ must be closed under vector addition and scalar multiplication.
+    
+    \item[$ \Leftarrow $] Suppose that the closure conditions hold. Since the operations for vector addition and scalar multiplication are inherited from the vector space $ V $, we know vector space axioms \ref{axiom:vect1} and \ref{axiom:vect2} (commutativity and associativity), \ref{axiom:vect5} and \ref{axiom:vect6} (properties of scalar multiplication), and \ref{axiom:vect7} and \ref{axiom:vect8} (distributivity) are satisfied. Therefore, we need only show:
+    \begin{enumerate}
+        \item[\ref{axiom:vect3}.] Existence of zero vector: Since $ a\vect{u}\in W $ for all $ a\in F $, choose $ a=0_F $. Then, by part \ref{thm:vectprop1} of Theorem \ref{thm:vectprop}, we have $ 0_F\vect{u}=\vect{0}\in W $.
+        
+        \item[\ref{axiom:vect4}.] Existence of additive inverse: Now choose $ a=-1_F $. Then, by part \ref{thm:vectprop4} of Theorem \ref{thm:vectprop}, we have $ (-1_F)\vect{u}=-\vect{u}\in W $.
+    \end{enumerate}
+    Hence, $ W $ is a vector space.\qedhere
+\end{enumerate}
+\end{proof}
 
-\begin{thm}
-Let $ U $ be a vector space over a field $ F $ and let $ V $ and $ W $ be subspaces of $ U $. Then, $ V\cap W $ is also a subspace of $ U $.
+\begin{lem}\label{lem:0subspace}
+If $ W $ is a subspace of a vector space $ V $, then $ \vect{0}_V\in W $ and $ \vect{0}_W=\vect{0}_V $.
+\end{lem}
+\begin{proof}
+Exercise \ref{exer:proof-0subspace}\noqed
+\end{proof}
+
+\begin{thm}\label{thm:subspaceintersect-2}
+Let $ U $ be a vector space. If $ V $ and $ W $ are subspaces of $ U $, then $ V\cap W $ is also a subspace of $ U $.
 \end{thm}
+\begin{proof}
+Suppose $ V $ and $ W $ are subspaces of $ U $. Then, by Lemma \ref{lem:0subspace}, $ \vect{0}_U\in V $ and $ \vect{0}_U\in W $, so $ \vect{0}_U\in V\cap W $. This means that $ V\cap W\neq\varnothing $, and clearly $ V\cap W\subseteq U $. We will now use Theorem \ref{thm:subspacetest}.
 
-\begin{cor}
-Let $ V $ be a vector space and let $ W_1,W_2,\ldots,W_n $ be subspaces of $ V $. Then, $ \cap_{k=1}^n W_k $ is also a subspace of $ V $.
+Let $ \vect{u}_1,\vect{u}_2\in V\cap W $. Then $ \vect{u}_1,\vect{u}_2\in V $ and $ \vect{u}_1,\vect{u}_2\in W $, so since $ V $ and $ W $ are vector spaces, $ \vect{u}_1+\vect{u}_2\in V $ and $ \vect{u}_1+\vect{u}_2\in W $. Thus,
+\begin{equation*}
+    \vect{u}_1+\vect{u}_2\in V\cap W.
+\end{equation*}
+
+Let $ \vect{u}\in V\cap W $ and let $ a $ be a scalar. Then, $ a\vect{u}\in V $ and $ a\vect{u}\in W $, so
+\begin{equation*}
+    a\vect{u}\in V\cap W.
+\end{equation*}
+Hence, $ V\cap W $ is a subspace of $ U $.
+\end{proof}
+
+\begin{cor}\label{cor:subspaceintersect-n}
+Let $ V $ be a vector space and let $ W_1,W_2,\ldots,W_n $, $ n\geq 2 $ be subspaces of $ V $. Then, $ \cap_{k=1}^n W_k $ is also a subspace of $ V $.
 \end{cor}
+\begin{proof}
+Exercise \ref{exer:proof-subspaceintersect-n}\noqed
+\end{proof}
+
+\subsection*{Exercises}
+
+\begin{exer}\label{exer:proof-0subspace}
+Prove Lemma \ref{lem:0subspace}.
+\end{exer}
+
+\begin{exer}\label{exer:proof-subspaceintersect-n}
+Prove Corollary \ref{cor:subspaceintersect-n}.
+\end{exer}
 
 \section{Linear combinations}
 
@@ -358,13 +479,13 @@ is called a \defnem{linear combination} of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{
 \end{defn}
 
 \begin{defn}
-Let $ V $ be a vector space over a field $ F $ and let $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in V $. The set of all linear combinations of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $, i.e.
+Let $ V $ be a vector space over a field $ F $ and let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\}\subseteq V $. The set of all linear combinations of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $, i.e.
 \begin{equation*}
     \{a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n\mid a_1,a_2,\ldots,a_n\in F\},
 \end{equation*}
-is called the \defnem{span} of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $, denoted $ \Span\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $.
+is called the \defnem{span} of $ S $, denoted $ \Span(S) $.
 
-If $ \Span\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\}=V $, we say that the set $ \{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $ spans $ V $.
+If $ \Span(S)=V $, we say that the set $ S $ spans $ V $.
 \end{defn}
 
 \begin{thm}
@@ -374,17 +495,84 @@ Let $ V $ be a vector space and let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_
     \item If $ W $ is a subspace of $ V $ and $ S\subseteq W $, then $ \Span(S)\subseteq W $. In other words, $ \Span(S) $ is the smallest subspace of $ V $ that contains all the vectors in $ S $.
 \end{enumerate}
 \end{thm}
+\begin{proof}~
+\begin{enumerate}
+    \item By assumption, $ \Span(S)\neq\varnothing $, and since $ V $ is closed under addition and scalar multiplication, $ \Span(S)\subseteq V $. Now we will show that $ \Span(S) $ is closed under addition and scalar multiplication. Let $ \vect{u},\vect{v}\in\Span(S) $. Then,
+    \begin{equation*}
+        \vect{u}=a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n \quad\text{and}\quad \vect{v}=b_1\vect{v}_1+b_2\vect{v}_2+\cdots+b_n\vect{v}_n
+    \end{equation*}
+    for some scalars $ a_1,a_2,\ldots,a_n,b_1,b_2,\ldots,b_n $. Thus,
+    \begin{align*}
+        \vect{u}+\vect{v} &= a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n+b_1\vect{v}_1+b_2\vect{v}_2+\cdots+b_n\vect{v}_n \\
+        &= a_1\vect{v}_1+b_1\vect{v}_1+a_2\vect{v}_2+b_2\vect{v}_2+\cdots+a_n\vect{v}_n+b_n\vect{v}_n \\
+        &= (a_1+b_1)\vect{v}_1+(a_2+b_2)\vect{v}_2+\cdots+(a_n+b_n)\vect{v}_n\in\Span(S).
+    \end{align*}
+    Similarly, letting $ c $ be an arbitrary scalar, we see
+    \begin{equation*}
+        c\vect{u}=c(a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n)=ca_1\vect{v}_1+ca_2\vect{v}_2+\cdots+ca_n\vect{v}_n\in\Span(S).
+    \end{equation*}
+    Hence, by Theorem \ref{thm:subspacetest}, $ \Span(S) $ is a subspace of $ V $.
+
+    \item Let $ W $ be a subspace of $ V $ such that $ S\subseteq W $. Then, $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in W $. Since $ W $ is a vector space, $ W $ is closed under addition and scalar multiplication, so any linear combination of vectors in $ W $ is also in $ W $. In particular, any linear combination of $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $ is in $ W $. Hence, $ \Span(S)\subseteq W $.\qedhere
+\end{enumerate}
+\end{proof}
 
 \begin{defn}
-Let $ V $ be a vector space over a field $ F $ and let $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in V $ and $ a_1,a_2,\ldots,a_n\in F $. The vectors $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $ are called \defnem{linearly independent} if
+Let $ V $ be a vector space over a field $ F $ and let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\}\subseteq V $ and $ a_1,a_2,\ldots,a_n\in F $. The set $ S $ is called \defnem{linearly independent} if
 \begin{equation*}
     a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{v}_n=\vect{0}
 \end{equation*}
-only if $ a_1=a_2=\cdots=a_n=0_F $. Otherwise, i.e. if there exists such a linear combination where at least one of $ a_1,a_2,\ldots,a_n $ is non-zero, we say the vectors $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $ are \defnem{linearly dependent}.
+only if $ a_1=a_2=\cdots=a_n=0_F $. Otherwise, if there exists such a linear combination where at least one of the coefficients $ a_1,a_2,\ldots,a_n $ is non-zero, we say $ S $ is \defnem{linearly dependent}.
 \end{defn}
 
 \begin{thm}
-Let $ V $ be a vector space and let $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\in V $, $ n\geq 2 $. The vectors $ \vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n $ are linearly dependent if and only if at least one of them can be expressed as a linear combination of the others.
+Let $ V $ be a vector space and let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\}\subseteq V $ where $ n\geq 2 $. The set $ S $ is linearly dependent if and only if at least one of the vectors in $ S $ can be expressed as a linear combination of the others.
 \end{thm}
+\begin{proof}~
+\begin{enumerate}
+    \item[$ \Rightarrow $] Suppose $ S $ is linearly dependent. Then, there exist scalars $ a_1,a_2,\ldots,a_n $, not all zero, such that $ a_1\vect{v}_1+a_2\vect{v}_2+\cdots+a_n\vect{c}_n=\vect{0} $. Say $ a_k\neq 0 $ for some $ k\in\{1,2,\ldots,n\} $. Then,
+    \begin{align*}
+        \vect{0} &= a_1\vect{v}_1+\cdots+a_{k-1}\vect{v}_{k-1}+a_k\vect{v}_k+a_{k+1}\vect{v}_{k+1}+\cdots+a_n\vect{v}_n \\
+        -a_k\vect{v}_k &= a_1\vect{v}_1+\cdots+a_{k-1}\vect{v}_{k-1}+a_{k+1}\vect{v}_{k+1}+\cdots+a_n\vect{v}_n \\
+        \vect{v}_k &= -a_k^{-1}a_1\vect{v}_1+\cdots+(-a_k^{-1})a_{k-1}\vect{v}_{k-1}+(-a_k^{-1})a_{k+1}\vect{v}_{k+1}+ \\
+        &\qquad \cdots+(-a_k^{-1})a_n\vect{v}_n.
+    \end{align*}
+
+    \item[$ \Leftarrow $] Suppose that for some $ \vect{v}_k\in S $, there exist scalars $ b_1,\ldots,b_{k-1},b_{k+1},\ldots,b_n $ such that $ \vect{v}_k=b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n $. Then,
+    \begin{align*}
+        \vect{0} &= b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+(-\vect{v}_k)+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n \\
+        \vect{0} &= b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+(-1)\vect{v}_k+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n,
+    \end{align*}
+    where we see there is at least one coefficient, $ -1 $, that is definitely non-zero. Hence, $ S $ is linearly dependent.\qedhere
+\end{enumerate}
+\end{proof}
 
 \section{Basis and dimension}
+
+\begin{defn}
+A set $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $ of vectors in a vector space $ V $ is called a \defnem{basis} of $ V $ if $ S $ is linearly independent and $ \Span(S)=V $. The vectors in $ S $ are called basis vectors.
+\end{defn}
+
+\begin{thm}
+Let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $ be a basis of a vector space $ V $. Then, every $ \vect{v}\in V $ can be written as a unique linear combination of the vectors in $ S $.
+\end{thm}
+
+\begin{thm}
+Let $ V $ be a vector space. If there exists a basis of $ V $ with $ n $ vectors, then every subset of $ V $ with more than $ n $ vectors is linearly dependent.
+\end{thm}
+
+\begin{cor}
+Let $ V $ be a vector space. If there exists a basis of $ V $ with $ n $ vectors, then every basis of $ V $ has $ n $ vectors.
+\end{cor}
+
+\begin{defn}
+Let $ V $ be a vector space that has a basis with $ n $ vectors. The number $ n $ is called the \defnem{dimension} of $ V $, denoted $ \dim(V) $. If $ V=\{\vect{0}\} $, then $ \dim(V)=0 $.
+\end{defn}
+
+\begin{thm}
+Let $ V $ be a vector space and let $ \dim(V)=n $. Then,
+\begin{enumerate}
+    \item If a subset $ S\subseteq V $ with $ n $ vectors is linearly independent, then $ S $ is a basis of $ V $; and
+    \item If a subset $ S\subseteq V $ with $ n $ vectors spans $ V $, then $ S $ is a basis of $ V $.
+\end{enumerate}
+\end{thm}
