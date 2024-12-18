@@ -98,7 +98,7 @@
 % Chapter and section labels in header
 \renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
 \renewcommand{\chaptermark}[1]{\markboth{%
-    \if@mainmatter\@chapapp\ \thechapter.\quad\fi #1%
+    \if@mainmatter\@chapapp\ \thechapter\quad\fi #1%
 }{}}
 
 \fancypagestyle{plain}{
@@ -112,7 +112,6 @@
     \renewcommand{\headrulewidth}{0pt}
     \fancyhead[RO]{\rightmark\rlap{\qquad\textbf{\thepage}}}
     \fancyhead[LE]{\llap{\textbf{\thepage}\qquad}\leftmark}
-    % \fancyhead[LE,RO]{\bfseries\thepage}
 }
 \pagestyle{standard}
 
@@ -190,7 +189,7 @@
 % Spacing and indentation
 % =============================================================================
 
-\setlength{\topsep}{\parskip}
+\setlength{\topsep}{2\parskip}
 \frenchspacing
 \raggedbottom
 

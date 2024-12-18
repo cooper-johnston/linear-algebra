@@ -7,32 +7,12 @@
 
 % Theorems --------------------------------------------------------------------
 
-\newtheoremstyle{mydefn}%
-    {2\topsep}% space above
-    {2\topsep}% space below
-    {}% body font
-    {}% indent amount
-    {\bfseries}% theorem head font
-    {.}% punctuation after theorem head
-    {0.5em}% space after theorem head
-    {}% theorem head spec
-\theoremstyle{mydefn}
-
+\theoremstyle{definition}
 \newtheorem{exer}{Exercise}[chapter]
 \newtheorem{defn}{Definition}[section]
 \newtheorem{exmp}[defn]{Example}
 
-\newtheoremstyle{mytheorem}%
-    {2\topsep}% space above
-    {2\topsep}% space below
-    {\sl}% body font
-    {}% indent amount
-    {\bfseries}% theorem head font
-    {.}% punctuation after theorem head
-    {0.5em}% space after theorem head
-    {}% theorem head spec
-\theoremstyle{mytheorem}
-
+\theoremstyle{plain}
 \newtheorem{prop}[defn]{Proposition}
 \newtheorem{lem}[defn]{Lemma}
 \newtheorem{thm}[defn]{Theorem}
