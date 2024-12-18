@@ -537,6 +537,7 @@ Let $ V $ be a vector space and let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_
         \vect{v}_k &= -a_k^{-1}a_1\vect{v}_1+\cdots+(-a_k^{-1})a_{k-1}\vect{v}_{k-1}+(-a_k^{-1})a_{k+1}\vect{v}_{k+1}+ \\
         &\qquad \cdots+(-a_k^{-1})a_n\vect{v}_n.
     \end{align*}
+    Hence, $ \vect{v}_k $ can be expressed as a linear combination of the other vectors.
 
     \item[$ \Leftarrow $] Suppose that for some $ \vect{v}_k\in S $, there exist scalars $ b_1,\ldots,b_{k-1},b_{k+1},\ldots,b_n $ such that $ \vect{v}_k=b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n $. Then,
     \begin{align*}
@@ -554,8 +555,20 @@ A set $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $ of vectors in a vector s
 \end{defn}
 
 \begin{thm}
-Let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $ be a basis of a vector space $ V $. Then, every $ \vect{v}\in V $ can be written as a unique linear combination of the vectors in $ S $.
+Let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_n\} $ be a basis of a vector space $ V $. Then, every $ \vect{v}\in V $ can be expressed as a unique linear combination of the vectors in $ S $.
 \end{thm}
+\begin{proof}
+By definition, $ \Span(S)=V $, so any vector in $ V $ can be expressed as a linear combination of the vectors in $ S $. To show uniqueness, suppose $ \vect{v}\in V $ can be expressed as two linear combinations
+\begin{equation*}
+    \vect{v}=a_1\vect{v}_1+a_2\vect{v_2}+\cdots+a_n\vect{v}_n \quad\text{and}\quad \vect{v}=b_1\vect{v}_1+b_2\vect{v_2}+\cdots+b_n\vect{v}_n.
+\end{equation*}
+Then,
+\begin{align*}
+    \vect{v}-\vect{v} &= (a_1-b_1)\vect{v}_1+(a_2-b_2)\vect{v}_2+\cdots+(a_n-b_n)\vect{v}_n \\
+    \vect{0} &= (a_1-b_1)\vect{v}_1+(a_2-b_2)\vect{v}_2+\cdots+(a_n-b_n)\vect{v}_n.
+\end{align*}
+Since $ S $ is linearly independent, this means that $ a_1-b_1=a_2-b_2=\cdots=a_n-b_n=0 $, so $ a_1=b_1,a_2=b_2,\ldots,a_n=b_n $. Hence, the representation of $ \vect{v} $ as a linear combination of the vectors in $ S $ is unique.
+\end{proof}
 
 \begin{thm}
 Let $ V $ be a vector space. If there exists a basis of $ V $ with $ n $ vectors, then every subset of $ V $ with more than $ n $ vectors is linearly dependent.
