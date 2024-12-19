@@ -1,14 +1,13 @@
-\documentclass[17x24paper, 10pt]{ooga-booga}
+\documentclass[17x24paper,10pt]{ooga-booga}
 
 \usepackage[textsize=footnotesize]{todonotes}
 \input{math}
 \usepackage{csquotes}
+\usepackage{tikz}
+\usepackage[raggedright]{sidecap}
 \usepackage{stix2}
 
-\newcommand{\sectionnumberless}[1]{
-    \section*{#1}
-    \addcontentsline{toc}{section}{#1}
-}
+\usetikzlibrary{calc,trees,positioning,arrows,fit,shapes}
 
 \setcounter{chapter}{-1} % starts chapter count at 0
 

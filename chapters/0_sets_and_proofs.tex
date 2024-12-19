@@ -50,7 +50,7 @@ We can see from this definition that
     \mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C}.
 \end{equation*}
 
-Subsets of the real numbers can be expressed as intervals:
+Continuous subsets of the real numbers can be expressed as intervals:
 \begin{align*}
     & (a,b)=\{x\in\mathbb{R}\mid a<x<b\}, && \text{(open interval)} \\
     & [a,b]=\{x\in\mathbb{R}\mid a\leq x\leq b\}, &&\text{(closed interval)} \\
@@ -143,15 +143,82 @@ We write $ f(a)=b $ or $ a\mapsto b $ to denote that $ f $ relates $ a $ to $ b 
 \end{defn}
 
 \begin{defn}
-A mapping $ f:A\to B $ is called \defnem{injective} if for all $ a,\tilde{a}\in A $, if $ f(a)=f(\tilde{a}) $, then $ a=\tilde{a} $; in other words, $ f(a) $ is unique. $ f $ is called \defnem{surjective} if for all $ b\in B $, there exists an $ a\in A $ such that $ f(a)=b $. A mapping that is both injective and surjective is called \defnem{bijective}.
+Let $ f:A\to B $ be a mapping. The set $ \{f(a)\mid a\in A\} $ is called the \defnem{range} of $ f $, denoted $ \range(f) $.
 \end{defn}
 
+\begin{SCfigure}[0.8][hb]
+\centering
+\begin{tikzpicture}
+    % Elements
+    \node (a1) at (-2,0.75) {$ a_1 $};
+    \node (a2) at (-2,0) {$ a_2 $};
+    \node (a3) at (-2,-0.75) {$ a_3 $};
+    \node (b1) at (2,0.75) {$ b_1 $};
+    \node (b2) at (2,0) {$ b_2 $};
+    \node (b3) at (2,-0.75) {$ b_3 $};
+
+    % Set ellipses
+    \node[draw,ellipse,fit= (a1) (a2) (a3),minimum width=2cm,label=above: $ A $] {};
+    \node[draw,ellipse,fit= (b1) (b2) (b3),minimum width=2cm,label=above: $ B $] {};
+    % \node[draw=cyan,thick,ellipse,fit= (b1) (b2),minimum width=1.5cm,label={[text=cyan]right:range}] {};
+
+    % Arrows
+    \draw[->] (a1) -- (b1);
+    \draw[->] (a2) -- (b2);
+    \draw[->] (a3) -- (b2);
+\end{tikzpicture}
+\caption{An example of a mapping from $ A=\{a_1,a_2,a_3\} $ to $ B=\{b_1,b_2,b_3\} $}
+\label{fig:map1}
+\end{SCfigure}
+
+If we have a mapping with a finite domain and codomain, we can represent it with a diagram like in Figure \ref{fig:map1}. We see that the range of the mapping shown in this diagram is $ \{b_1,b_2\} $ since these are the elements in $ B $ that are mapped to.
+
 \begin{defn}
-Let $ f:A\to B $ be a mapping. The set $ \{f(a)\mid a\in A\} $ is called the \defnem{range} of $ f $.
+A mapping $ f:A\to B $ is called \defnem{injective} if for all $ a,\tilde{a}\in A $, if $ f(a)=f(\tilde{a}) $, then $ a=\tilde{a} $; in other words, no two different elements in $ A $ map to the same element in $ B $. $ f $ is called \defnem{surjective} if for all $ b\in B $, there exists an $ a\in A $ such that $ f(a)=b $. A mapping that is both injective and surjective is called \defnem{bijective}.
+\end{defn}
+
+\begin{SCfigure}[0.8][ht]
+\centering
+\begin{tikzpicture}
+    % Elements
+    \node (a1) at (-2,0.75) {$ a_1 $};
+    \node (a2) at (-2,0) {$ a_2 $};
+    \node (a3) at (-2,-0.75) {$ a_3 $};
+    \node (b1) at (2,0.75) {$ b_1 $};
+    \node (b2) at (2,0) {$ b_2 $};
+    \node (b3) at (2,-0.75) {$ b_3 $};
+
+    % Set ellipses
+    \node[draw,ellipse,fit= (a1) (a2) (a3),minimum width=2cm,label=above: $ A $] {};
+    \node[draw,ellipse,fit= (b1) (b2) (b3),minimum width=2cm,label=above: $ B $] {};
+
+    % Arrows
+    \draw[->] (a1) -- (b1);
+    \draw[->] (a2) -- (b2);
+    \draw[->] (a3) -- (b3);
+\end{tikzpicture}
+\caption{An example of a bijective mapping from $ A=\{a_1,a_2,a_3\} $ to $ B=\{b_1,b_2,b_3\} $}
+\end{SCfigure}
+
+\begin{thm}\label{thm:surjective}
+A mapping $ f:A\to B $ is surjective if and only if $ \range(f)=B $.
+\end{thm}
+\begin{proof}
+Exercise \ref{exer:surjective}\noqed
+\end{proof}
+
+\begin{defn}
+Let $ f:A\to B $ be a bijective mapping. The mapping $ f^{-1}:B\to A $, $ f^{-1}(f(a))=a $ is called the \defnem{inverse mapping} of $ f $.
 \end{defn}
 
 \begin{defn}\label{defn:binop}
 Let $ A $ and $ B $ be two non-empty sets. A mapping $ \odot:B\times A\to A $, $ (x,y)\mapsto x\odot y $, is called a \defnem{binary operation}. If $ A=B $, i.e. we have $ \odot:A\times A\to A $, we say $ \odot $ is a binary operation on $ A $.
 \end{defn}
+
+\subsection*{Exercises}
+
+\begin{exer}\label{exer:surjective}
+Prove Theorem \ref{thm:surjective}.
+\end{exer}
 
 \section{Proofs}

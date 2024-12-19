@@ -49,7 +49,7 @@
 \DeclareOption{sansheadings}{\renewcommand{\ob@headingstyle}{\sffamily}}
 
 % Option to include a credit note for this template on the reverse of the title page
-\DeclareOption{credit}{\def\ob@credit{1}}
+\DeclareOption{credit}{\def\ob@credit{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/cooper-johnston/ooga-booga/}}}
 
 % Suppress remaining book class options
 \DeclareOption{11pt}{\OptionNotUsed}
@@ -79,6 +79,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{xcolor}
 \RequirePackage[hidelinks]{hyperref}
+\RequirePackage[font=small]{caption}
 \RequirePackage{parskip}
 
 % Geometry
@@ -171,11 +172,10 @@
 \end{titlepage}}
 
 % Credit at bottom of reverse side of title page
-\newcommand{\ob@creditmessage}{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/cooper-johnston/ooga-booga/}}
 \fancypagestyle{titlepagereverse}{
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
-    \fancyfoot[R]{\ifdefined\ob@credit\color{lightgray}\ob@creditmessage\fi}
+    \fancyfoot[R]{\ifdefined\ob@credit\color{lightgray}\ob@credit\fi}
 }
 
 % Frontmatter

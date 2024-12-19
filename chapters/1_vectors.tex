@@ -383,27 +383,33 @@ Note that in the above proof, the distributive property used in parts \ref{thm:v
 \subsection*{Exercises}
 
 \begin{exer}\label{exer:pnvs}
-Let $ F $ be a field and let $ P_n(F) $ be the set of all polynomials of degree $ \leq n $ over $ F $, i.e.
+Let $ P_n(\mathbb{C}) $ be the set of all polynomials of degree $ \leq n $ over $ \mathbb{C} $, i.e.
 \begin{equation*}
-    P_n(F)=\left\{p:F\to F,\,p(z)=\sum_{k=0}^n a_k z^k\mid a_0,a_1,\ldots,a_n\in F\right\}.
+    P_n(\mathbb{C})=\left\{p:\mathbb{C}\to\mathbb{C},\,p(z)=\sum_{k=0}^n a_k z^k\mid a_0,a_1,\ldots,a_n\in \mathbb{C}\right\}.
 \end{equation*}
-Show that $ P_n(F) $, together with addition and scalar multiplication defined such that for all $ c\in F $ and $ p(z)=\sum_{k=0}^n a_k z^k,q(z)=\sum_{k=0}^n b_k z^k\in P_n(F) $, we have
+Show that $ P_n(\mathbb{C}) $, together with addition and scalar multiplication defined such that for all $ c\in\mathbb{C} $ and $ p(z)=\sum_{k=0}^n a_k z^k,q(z)=\sum_{k=0}^n b_k z^k\in P_n(\mathbb{C}) $, we have
 \begin{equation*}
     p(z)+q(z)=\sum_{k=0}^n (a_k+b_k)z^k \quad\text{and}\quad cp(z)=\sum_{k=0}^n ca_k z^k,
 \end{equation*}
-is a vector space over $ F $.
+is a vector space over $ \mathbb{C} $.
 \end{exer}
 
 \begin{exer}\label{exer:0unique}
 Show that the zero vector of a vector space is unique, i.e. show that if $ \vect{0} $ and $ \tilde{\vect{0}} $ are two zero vectors in the same vector space, then $ \vect{0}=\tilde{\vect{0}} $.
 \end{exer}
 
+\begin{exer}
+Show that for every vector $ \vect{v} $ in a vector space $ V $, the additive inverse $ -\vect{v} $ is unique.
+\end{exer}
+
+\begin{exer}
+Show that for all vectors $ \vect{u},\vect{v} $ in a vector space $ V $, there exists a unique vector $ \vect{x}\in V $ such that $ \vect{u}+\vect{x}=\vect{v} $. Show that the solution must be $ \vect{x}=-\vect{u}+\vect{v} $.
+\end{exer}
+
 \section{Subspaces}
 
 \begin{defn}
-Let $ V $ be a vector space over a field $ F $ and let $ W $ be a non-empty subset of $ V $. The set $ W $, together with vector addition and scalar multiplication as defined on $ V $, is called a \defnem{subspace} of $ V $ if $ W $ with these operations is a vector space over $ F $.
-
-The subspaces $ W=\{\vect{0}_V\} $ and $ W=V $ are called the \defnem{trivial subspaces} of $ V $.
+Let $ V $ be a vector space over a field $ F $ and let $ W $ be a non-empty subset of $ V $. The set $ W $, together with vector addition and scalar multiplication as defined on $ V $, is called a \defnem{subspace} of $ V $ if $ W $ with these operations is a vector space over $ F $. The subspaces $ W=\{\vect{0}_V\} $ and $ W=V $ are called the \defnem{trivial subspaces} of $ V $.
 \end{defn}
 
 \begin{thm}\label{thm:subspacetest}
@@ -539,12 +545,12 @@ Let $ V $ be a vector space and let $ S=\{\vect{v}_1,\vect{v}_2,\ldots,\vect{v}_
     \end{align*}
     Hence, $ \vect{v}_k $ can be expressed as a linear combination of the other vectors.
 
-    \item[$ \Leftarrow $] Suppose that for some $ \vect{v}_k\in S $, there exist scalars $ b_1,\ldots,b_{k-1},b_{k+1},\ldots,b_n $ such that $ \vect{v}_k=b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n $. Then,
+    \item[$ \Leftarrow $] Let $ F $ denote the field of scalars. Suppose that for some $ \vect{v}_k\in S $, there exist scalars $ b_1,\ldots,b_{k-1},b_{k+1},\ldots,b_n $ such that $ \vect{v}_k=b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n $. Then,
     \begin{align*}
         \vect{0} &= b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+(-\vect{v}_k)+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n \\
-        \vect{0} &= b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+(-1)\vect{v}_k+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n,
+        \vect{0} &= b_1\vect{v}_1+\cdots+b_{k-1}\vect{v}_{k-1}+(-1_F)\vect{v}_k+b_{k+1}\vect{v}_{k+1}+\cdots+b_n\vect{v}_n,
     \end{align*}
-    where we see there is at least one coefficient, $ -1 $, that is definitely non-zero. Hence, $ S $ is linearly dependent.\qedhere
+    where we see there is at least one coefficient, $ -1_F $, that is definitely non-zero. Hence, $ S $ is linearly dependent.\qedhere
 \end{enumerate}
 \end{proof}
 
@@ -564,10 +570,10 @@ By definition, $ \Span(S)=V $, so any vector in $ V $ can be expressed as a line
 \end{equation*}
 Then,
 \begin{align*}
-    \vect{v}-\vect{v} &= (a_1-b_1)\vect{v}_1+(a_2-b_2)\vect{v}_2+\cdots+(a_n-b_n)\vect{v}_n \\
+    \vect{v}+(-\vect{v}) &= a_1\vect{v}_1+a_2\vect{v_2}+\cdots+a_n\vect{v}_n+(-(b_1\vect{v}_1+b_2\vect{v_2}+\cdots+b_n\vect{v}_n)) \\
     \vect{0} &= (a_1-b_1)\vect{v}_1+(a_2-b_2)\vect{v}_2+\cdots+(a_n-b_n)\vect{v}_n.
 \end{align*}
-Since $ S $ is linearly independent, this means that $ a_1-b_1=a_2-b_2=\cdots=a_n-b_n=0 $, so $ a_1=b_1,a_2=b_2,\ldots,a_n=b_n $. Hence, the representation of $ \vect{v} $ as a linear combination of the vectors in $ S $ is unique.
+Since $ S $ is linearly independent, this means that $ a_1-b_1=a_2-b_2=\cdots=a_n-b_n=0_F $ (where $ F $ is the field of scalars), so $ a_1=b_1,a_2=b_2,\ldots,a_n=b_n $. Hence, the representation of $ \vect{v} $ as a linear combination of the vectors in $ S $ is unique.
 \end{proof}
 
 \begin{thm}
