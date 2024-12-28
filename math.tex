@@ -1,29 +1,32 @@
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{soul}
 
-% Definitions -----------------------------------------------------------------
+% Special terms ---------------------------------------------------------------
 
-\newcommand{\defnem}[1]{\hl{#1}}
+% \newcommand{\defnem}[1]{\hl{#1}}
+\newcommand{\defnem}[1]{\emph{#1}} % definitions
+\newcommand{\titleditem}[2][]{%
+    \item%
+    \ifx&#1&\else\label{#1}\fi%
+    \textsc{#2}:\hspace{1ex}}
 
-% Theorems --------------------------------------------------------------------
+% Theorem environments --------------------------------------------------------
 
 \theoremstyle{definition}
-\newtheorem{exer}{Exercise}[chapter]
-\newtheorem{defn}{Definition}[section]
-\newtheorem{exmp}[defn]{Example}
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}[definition]{Example}
 
 \theoremstyle{plain}
-\newtheorem{prop}[defn]{Proposition}
-\newtheorem{lem}[defn]{Lemma}
-\newtheorem{thm}[defn]{Theorem}
-\newtheorem{cor}[defn]{Corollary}
-\newtheorem{claim}[defn]{Claim}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
 
 % Proofs ----------------------------------------------------------------------
 
 \renewcommand{\qedsymbol}{$ \blacksquare $}
 
-\newenvironment{sltn}[1][\unskip]{%
+\newenvironment{solution}[1][\unskip]{%
     \begin{proof}[Solution #1]
     \renewcommand{\qedsymbol}{$ \square $}%
 }{\end{proof}}
@@ -43,5 +46,4 @@
 
 % Other notation --------------------------------------------------------------
 
-% \newcommand{\vect}[1]{\boldsymbol{\mathbf{#1}}} % vectors
-\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}} % vectors

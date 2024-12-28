@@ -1,18 +1,17 @@
-\chapter{Sets and Proofs}\label{chap:fundamentals}
+\chapter{Sets and Proofs}\label{chap:sets_proofs}
 
 \section{Sets}
 
 We will begin by exploring the concept of a set through what is sometimes called intuitive or naive set theory. There exist more rigorous approaches, axiomatic set theories, but we will not be looking at these; our intuitive treatment of sets will suffice for the purposes of this course.
 
-\begin{defn}
-A \defnem{set} is a well-defined collection of objects. By \textquote{well-defined} we mean that for any set $ S $, any object is either definitely in $ S $ or definitely not in $ S $.
-
-An object that is in a set is called an \defnem{element} of that set. We write $ x\in S $ to denote that $ x $ is an element of the set $ S $.
-
-The set that does not contain any elements is called the \defnem{empty set}, denoted $ \varnothing $.
-
-The number of elements in a set is called the \defnem{cardinality} of that set. We write $ \lvert S\rvert $ to denote the cardinality of the set $ S $.
-\end{defn}
+\begin{definition}~
+\begin{enumerate}
+    \item A \defnem{set} is a well-defined collection of objects. By \textquote{well-defined} we mean that for any set $ S $, any object is either definitely in $ S $ or definitely not in $ S $.
+    \item An object that is in a set is called an \defnem{element} of that set. We write $ x\in S $ to denote that $ x $ is an element of the set $ S $.
+    \item The set that does not contain any elements is called the \defnem{empty set}, denoted $ \varnothing $.
+    \item The number of elements in a set is called the \defnem{cardinality} of that set. We write $ \lvert S\rvert $ to denote the cardinality of the set $ S $.
+\end{enumerate}
+\end{definition}
 
 One way to describe a set is by listing its elements. For example, we can define $ A $ to be the set containing the numbers 3, 6, 9, and 12, which we write as
 \begin{equation*}
@@ -41,35 +40,33 @@ It is possible to construct some of these using elements of the others. For exam
 \end{equation*}
 We can also use them to define other sets of numbers, such as the set of even numbers, which is the set of all numbers $ 2n $ where $ n $ is an integer, i.e. $ \{2n\mid n\in\mathbb{Z}\} $.
 
-\begin{defn}
+\begin{definition}
 Let $ A $ and $ B $ be two sets. $ B $ is called a \defnem{subset} of $ A $, denoted $ B\subseteq A $, if every element in $ B $ is also an element in $ A $, i.e. if $ b\in B $, then $ b\in A $. $ B $ is called a \defnem{proper subset} of $ A $, denoted $ B\subset A $, if $ B\subseteq A $ and $ B\neq A $. The sets $ B=\varnothing $ and $ B=A $ are called the \defnem{trivial subsets} of $ A $.
-\end{defn}
+\end{definition}
 
 We can see from this definition that
 \begin{equation*}
     \mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C}.
 \end{equation*}
 
-Continuous subsets of the real numbers can be expressed as intervals:
+Continuous subsets of the real numbers can be expressed as \defnem{intervals}:
 \begin{align*}
-    & (a,b)=\{x\in\mathbb{R}\mid a<x<b\}, && \text{(open interval)} \\
-    & [a,b]=\{x\in\mathbb{R}\mid a\leq x\leq b\}, &&\text{(closed interval)} \\
+    & (a,b)=\{x\in\mathbb{R}\mid a<x<b\} && \text{(\defnem{open interval})}, \\
+    & [a,b]=\{x\in\mathbb{R}\mid a\leq x\leq b\} &&\text{(\defnem{closed interval})}, \\
     & [a,b)=\{x\in\mathbb{R}\mid a\leq x<b \}, \\
     & (a,b]=\{x\in\mathbb{R}\mid a<x\leq b\}.
 \end{align*}
 
-\begin{defn}
+\begin{definition}
 Let $ A_1,A_2,\ldots,A_n $ be non-empty sets. The set
 \begin{equation*}
     A_1\times A_2\times \cdots\times A_n=\{(a_1,a_2,\ldots,a_n)\mid a_1\in A_1,a_2\in A_2,\ldots,a_n\in A_n\}
 \end{equation*}
-is called the \defnem{Cartesian product} of $ A_1,A_2,\ldots,A_n $.
-
-The Cartesian product of a set with itself can be denoted by
+is called the \defnem{Cartesian product} of $ A_1,A_2,\ldots,A_n $. If $ A_1=A_2=\cdots=A_n=A $, then we can write
 \begin{equation*}
     \underbrace{A\times A\times\cdots\times A}_{n\text{ times}}=A^n.
 \end{equation*}
-\end{defn}
+\end{definition}
 
 A common example of a Cartesian product is the set of ordered pairs of real numbers, which can be expressed as
 \begin{equation*}
@@ -77,7 +74,7 @@ A common example of a Cartesian product is the set of ordered pairs of real numb
 \end{equation*}
 Note that the notation for an ordered pair $ (x,y)\in\mathbb{R}^2 $ is the same as the notation for an open interval $ (x,y)\subseteq\mathbb{R} $. This motivates an important rule in mathematics: We must be careful to specify what we mean with our notation if it is not clear from the context!
 
-\begin{defn}
+\begin{definition}
 Let $ A $ and $ B $ be two sets. The set
 \begin{equation*}
     A\cup B=\{c\mid c\in A\text{ or }c\in B\},
@@ -87,12 +84,12 @@ i.e. the set containing all elements of $ A $ as well as all the elements of $ B
     A\cap B=\{c\mid c\in A\text{ and }c\in B\},
 \end{equation*}
 i.e. the set containing all the elements that are in both $ A $ and $ B $ at the same time, is called the \defnem{intersection} of $ A $ and $ B $.
-\end{defn}
+\end{definition}
 
-\begin{exmp}
+\begin{example}
 Let $ A=\{1,2\} $ and $ B=\{2,4,6\} $. Express $ A\times B $, $ A\cup B $, and $ A\cap B $ by listing their elements.
-\end{exmp}
-\begin{sltn}~
+\end{example}
+\begin{solution}~
 \begin{enumerate}
     \item $ A\times B $ is the set of all ordered pairs where the first element is in $ A $ and the second is in $ B $:
     \begin{equation*}
@@ -107,44 +104,58 @@ Let $ A=\{1,2\} $ and $ B=\{2,4,6\} $. Express $ A\times B $, $ A\cup B $, and $
         A\cap B=\{2\}. \qedhere
     \end{equation*}
 \end{enumerate}
-\end{sltn}
+\end{solution}
 
 \subsection*{Exercises}
 
-\begin{exer}\label{exer:setops}
+\begin{problem}\label{prb:setops}
 For each of the following, find $ A\cup B $, $ A\cap B $, $ A\times B $, and $ B\times A $.
 \begin{enumerate}[label=(\alph*)]
     \item $ A=\{-1,1\} $, $ B=\{1,2,3\} $.
     \item $ A=\{0,1\} $, $ B=\{3,9,27\} $.
     \item $ A=[-1,1] $, $ B=(0,\infty) $.
 \end{enumerate}
-\end{exer}
+\end{problem}
 
-\begin{exer}\label{exer:Z}
+\begin{problem}\label{prb:Z}
 Express the set of integers $ \mathbb{Z} $ in terms of the set of natural numbers $ \mathbb{N} $ and the set $ \{0\} $.
-\end{exer}
+\end{problem}
 
-\begin{exer}\label{exer:C}
+\begin{problem}\label{prb:C}
 Express the set of complex numbers $ \mathbb{C} $ in terms of the set of real numbers $ \mathbb{R} $ and the imaginary number $ i $.
-\end{exer}
+\end{problem}
+
+\section{Mathematical logic}
 
 \section{Mappings}
 
-\begin{defn}
-Let $ A $ and $ B $ be two non-empty sets, and let $ \mathcal{R}\subseteq A\times B $. The set $ \mathcal{R} $ is called a \defnem{relation} between $ A $ and $ B $. For an ordered pair $ (a,b)\in\mathcal{R} $, we say that $ \mathcal{R} $ relates $ a $ to $ b $.
-\end{defn}
+% \begin{definition}
+% Let $ A $ and $ B $ be two non-empty sets, and let $ \mathcal{R}\subseteq A\times B $. The set $ \mathcal{R} $ is called a \defnem{relation} between $ A $ and $ B $. For an ordered pair $ (a,b)\in\mathcal{R} $, we say that $ \mathcal{R} $ relates $ a $ to $ b $.
+% \end{definition}
 
-\begin{defn}
-Let $ A $ and $ B $ be two non-empty sets. A relation $ f $ between $ A $ and $ B $ is called a \defnem{mapping} or a \defnem{function} if for every $ a\in A $, there exists exactly one $ b\in B $ such that $ f $ relates $ a $ to $ b $. The set $ A $ is called the \defnem{domain} of $ f $, and $ B $ is called the \defnem{codomain} of $ f $.
+% \begin{definition}
+% Let $ A $ and $ B $ be two non-empty sets. A relation $ f $ between $ A $ and $ B $ is called a \defnem{mapping} or a \defnem{function} if for every $ a\in A $, there exists exactly one $ b\in B $ such that $ f $ relates $ a $ to $ b $. The set $ A $ is called the \defnem{domain} of $ f $, and $ B $ is called the \defnem{codomain} of $ f $. We write
+% \begin{align*}
+%     f:A\to B,\quad & a\mapsto b \\
+%     & (\text{or}\ f(a)=b)
+% \end{align*}
+% to denote that $ f $ is a mapping with domain $ A $ and codomain $ B $ (we say in this case that $ f $ is a mapping \defnem{from $ A $ to $ B $}) and that $ f $ \defnem{maps $ a $ to $ b $}.
+% \end{definition}
 
-We write $ f:A\to B $ to denote that $ f $ is a mapping with domain $ A $ and codomain $ B $; that is, $ f $ is a mapping from $ A $ to $ B $.
+\begin{definition}
+Let $ A $ and $ B $ be two non-empty sets. A subset $ f\subseteq A\times B $ is called a \defnem{mapping} or a \defnem{function} from $ A $ to $ B $ if for all $ a\in A $, there exists exactly one $ b\in B $ such that $ (a,b)\in f $ (when we say that a mapping is \defnem{well-defined}, we are referring to this property).
 
-We write $ f(a)=b $ or $ a\mapsto b $ to denote that $ f $ relates $ a $ to $ b $; that is, $ f $ maps $ a $ to $ b $.
-\end{defn}
+The set $ A $ is called the \defnem{domain} of $ f $ and the set $ B $ is called the \defnem{codomain}. For any pair $ (a,b)\in f $, we write $ f(a)=b $ or $ a\mapsto b $ and say $ f $ \defnem{maps $ a $ to $ b $}. We write
+\begin{align*}
+    f:A\to B,\quad & a\mapsto b \\
+    & (\text{or}\ f(a)=b)
+\end{align*}
+to denote that $ f $ is a mapping from $ A $ to $ B $ that maps elements $ a\in A $ to corresponding elements $ b\in B $.
+\end{definition}
 
-\begin{defn}
+\begin{definition}
 Let $ f:A\to B $ be a mapping. The set $ \{f(a)\mid a\in A\} $ is called the \defnem{range} of $ f $, denoted $ \range(f) $.
-\end{defn}
+\end{definition}
 
 \begin{SCfigure}[0.8][hb]
 \centering
@@ -173,9 +184,9 @@ Let $ f:A\to B $ be a mapping. The set $ \{f(a)\mid a\in A\} $ is called the \de
 
 If we have a mapping with a finite domain and codomain, we can represent it with a diagram like in Figure \ref{fig:map1}. We see that the range of the mapping shown in this diagram is $ \{b_1,b_2\} $ since these are the elements in $ B $ that are mapped to.
 
-\begin{defn}
+\begin{definition}
 A mapping $ f:A\to B $ is called \defnem{injective} if for all $ a,\tilde{a}\in A $, if $ f(a)=f(\tilde{a}) $, then $ a=\tilde{a} $; in other words, no two different elements in $ A $ map to the same element in $ B $. $ f $ is called \defnem{surjective} if for all $ b\in B $, there exists an $ a\in A $ such that $ f(a)=b $. A mapping that is both injective and surjective is called \defnem{bijective}.
-\end{defn}
+\end{definition}
 
 \begin{SCfigure}[0.8][ht]
 \centering
@@ -200,25 +211,19 @@ A mapping $ f:A\to B $ is called \defnem{injective} if for all $ a,\tilde{a}\in 
 \caption{An example of a bijective mapping from $ A=\{a_1,a_2,a_3\} $ to $ B=\{b_1,b_2,b_3\} $}
 \end{SCfigure}
 
-\begin{thm}\label{thm:surjective}
+\begin{theorem}\label{thm:surjective}
 A mapping $ f:A\to B $ is surjective if and only if $ \range(f)=B $.
-\end{thm}
+\end{theorem}
 \begin{proof}
-Exercise \ref{exer:surjective}\noqed
+Exercise \ref{prb:surjective}\noqed
 \end{proof}
 
-\begin{defn}
+\begin{definition}
 Let $ f:A\to B $ be a bijective mapping. The mapping $ f^{-1}:B\to A $, $ f^{-1}(f(a))=a $ is called the \defnem{inverse mapping} of $ f $.
-\end{defn}
-
-\begin{defn}\label{defn:binop}
-Let $ A $ and $ B $ be two non-empty sets. A mapping $ \odot:B\times A\to A $, $ (x,y)\mapsto x\odot y $, is called a \defnem{binary operation}. If $ A=B $, i.e. we have $ \odot:A\times A\to A $, we say $ \odot $ is a binary operation on $ A $.
-\end{defn}
+\end{definition}
 
 \subsection*{Exercises}
 
-\begin{exer}\label{exer:surjective}
+\begin{problem}\label{prb:surjective}
 Prove Theorem \ref{thm:surjective}.
-\end{exer}
-
-\section{Proofs}
+\end{problem}

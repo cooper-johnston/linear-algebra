@@ -1,10 +1,10 @@
 \chapter{Solutions to Exercises}
 \footnotesize
 
-\section*{Chapter \ref{chap:fundamentals}}
+\section*{Chapter \ref{chap:sets_proofs}}
 
-\begin{sltn}[\ref{exer:setops}]~
-\begin{enumerate}[label=(\alph*)]
+\begin{description}
+\item[\ref{prb:setops}]\begin{enumerate}[label=(\alph*)]
     \item $ A\cup B=\{-1,1,2,3\} $,
     
     $ A\cap B=\{1\} $,
@@ -27,22 +27,18 @@
 
     $ A\times B=\{(a,b)\mid a\in[-1,1],b\in(0,\infty)\} $,
 
-    $ B\times A=\{(b,a)\mid b\in(0,\infty),a\in[-1,1]\} $.\qedhere
+    $ B\times A=\{(b,a)\mid b\in(0,\infty),a\in[-1,1]\} $.
 \end{enumerate}
-\end{sltn}
 
-\begin{sltn}[\ref{exer:Z}]
-$ \mathbb{Z}=\{\pm n\mid n\in\mathbb{N}\}\cup\{0\} $.
-\end{sltn}
+\item[\ref{prb:Z}] $ \mathbb{Z}=\{\pm n\mid n\in\mathbb{N}\}\cup\{0\} $.
 
-\begin{sltn}[\ref{exer:C}]
-$ \mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\} $.
-\end{sltn}
+\item[\ref{prb:C}] $ \mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\} $.
+\end{description}
 
 \section*{Chapter \ref{chap:vectors}}
 
-\begin{sltn}[\ref{exer:cfield}]
-Let $ a,b,c,d,e,f\in\mathbb{R} $. First we must verify that $ \mathbb{C} $ is indeed closed under the given operations. Since $ (a+c),(b+d)\in\mathbb{R} $, we see that
+\begin{description}
+\item[\ref{prb:cfield}] Let $ a,b,c,d,e,f\in\mathbb{R} $. First we must verify that $ \mathbb{C} $ is indeed closed under the given operations. Since $ (a+c),(b+d)\in\mathbb{R} $, we see that
 \begin{equation*}
     (a+bi)+(c+di)=(a+c)+(b+d)i\in\mathbb{C},
 \end{equation*}
@@ -111,16 +107,10 @@ Thus, $ \mathbb{C} $ is closed under $ + $ and $ \cdot $. Now we can check the f
     \end{align*}
 \end{enumerate}
 Hence, $ \mathbb{C} $ with these operations is a field.
-\end{sltn}
 
-\begin{sltn}[\ref{exer:0unique}]
-By the definition of the zero vector, for any vector $ \vect{v} $, we have $ \vect{v}+\vect{0}=\vect{v} $ and $ \vect{v}+\tilde{\vect{0}}=\vect{v} $. In particular, $ \vect{0}=\vect{0}+\tilde{\vect{0}}=\tilde{\vect{0}}+\vect{0}=\tilde{\vect{0}} $.
-\end{sltn}
+\item[\ref{prb:0unique}] By the definition of the zero vector, for any vector $ \vect{v} $, we have $ \vect{v}+\vect{0}=\vect{v} $ and $ \vect{v}+\tilde{\vect{0}}=\vect{v} $. In particular, $ \vect{0}=\vect{0}+\tilde{\vect{0}}=\tilde{\vect{0}}+\vect{0}=\tilde{\vect{0}} $.
 
-\begin{sltn}[\ref{exer:proof-0subspace} (Proof of Lemma \ref{lem:0subspace})]
-Since $ W $ is a vector space, there must exist a zero vector $ \vect{0}_W\in W $, and since $ W\subseteq V $, we have $ \vect{0}_W\in V $. By uniqueness of the zero vector (see Exercise \ref{exer:0unique}), $ \vect{0}_W=\vect{0}_V $.
-\end{sltn}
+\item[\ref{prb:proof-0subspace} (Proof of Lemma \ref{lem:0subspace})] Since $ W $ is a vector space, there must exist a zero vector $ \vect{0}_W\in W $, and since $ W\subseteq V $, we have $ \vect{0}_W\in V $. By uniqueness of the zero vector (see Exercise \ref{prb:0unique}), $ \vect{0}_W=\vect{0}_V $.
 
-\begin{sltn}[\ref{exer:proof-subspaceintersect-n} (Proof of Corollary \ref{cor:subspaceintersect-n})]
-We can prove this result by induction. The base case (where $ n=2 $) is Theorem \ref{thm:subspaceintersect-2}. For our inductive hypothesis, suppose $ U=\cap_{k=1}^m W_k $ is a subspace of $ V $. By Theorem \ref{thm:subspaceintersect-2}, if $ W_{m+1} $ is a subspace of $ V $, then $ U\cap W_{m+1}=\cap_{k=1}^{m+1}W_k $ is also a subspace of $ V $. Hence, $ \cap_{k=1}^n W_k $ is a subspace of $ V $ for all $ n\geq 2 $.
-\end{sltn}
+\item[\ref{prb:proof-subspaceintersect-n} (Proof of Corollary \ref{cor:subspaceintersect-n})] We can prove this result by induction. The base case (where $ n=2 $) is Theorem \ref{thm:subspaceintersect-2}. For our inductive hypothesis, suppose $ U=\cap_{k=1}^m W_k $ is a subspace of $ V $. By Theorem \ref{thm:subspaceintersect-2}, if $ W_{m+1} $ is a subspace of $ V $, then $ U\cap W_{m+1}=\cap_{k=1}^{m+1}W_k $ is also a subspace of $ V $. Hence, $ \cap_{k=1}^n W_k $ is a subspace of $ V $ for all $ n\geq 2 $.
+\end{description}

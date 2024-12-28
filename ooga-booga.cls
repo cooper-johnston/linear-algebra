@@ -80,7 +80,7 @@
 \RequirePackage{xcolor}
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage[font=small]{caption}
-\RequirePackage{parskip}
+\RequirePackage[skip=0pt,indent=15pt]{parskip}
 
 % Geometry
 % =============================================================================
@@ -189,7 +189,7 @@
 % Spacing and indentation
 % =============================================================================
 
-\setlength{\topsep}{2\parskip}
+\setlength{\topsep}{3ex}
 \frenchspacing
 \raggedbottom
 
@@ -198,8 +198,15 @@
 
 \setlist[enumerate]{
     labelindent=0pt,
-    labelwidth=20pt,
+    labelwidth=12pt,
     labelsep=4pt,
     leftmargin=!,
     align=left
+}
+\setlist[itemize]{
+    labelindent=0pt,
+    labelwidth=8pt,
+    labelsep=8pt,
+    leftmargin=!,
+    align=right
 }
